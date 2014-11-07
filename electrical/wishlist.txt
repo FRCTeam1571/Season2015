@@ -1,0 +1,6 @@
+Electrical wishlist:
+Wire crimpers, cutters, and strippers (Good ones!)
+More terminals (The round ones that go onto the Jaguars and the flat ones that go into the spikes)
+Our own soldering tools (Soldering iron, solder, desoldering gun)
+Second copy of all new parts (RoboRIO, PDB, Pneumatics Breakout, Voltage Regulator)
+
