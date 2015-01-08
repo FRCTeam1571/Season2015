@@ -1,0 +1,9 @@
+TODO List
+==============
+
+1. Aaron - Show Christian C++
+2. Aaron and Joey - Sensor Code - Ultrasonic, Gyro, Motor Encoders, Magnetic Sensors
+3. Joey - Research Vision Systems
+4. Aaron - Research "Iterative Robot" Template
+5. Christian - CAN Motor Control research
+6. Ginger - Shirt Design and Mascot Design
