@@ -1,0 +1,47 @@
+#include "WPILib.h"
+#include <Talon.h>
+
+class Robot: public IterativeRobot
+{
+private:
+	LiveWindow *lw;
+
+	Talon t1;
+	Talon t2;
+
+	void RobotInit()
+	{
+		lw = LiveWindow::GetInstance();
+
+		t1 = Talon(0);
+		t2 = Talon(1);
+	}
+
+	void AutonomousInit()
+	{
+
+	}
+
+	void AutonomousPeriodic()
+	{
+
+	}
+
+	void TeleopInit()
+	{
+		t1.Set(1.0f);
+		t2.Set(1.0f);
+	}
+
+	void TeleopPeriodic()
+	{
+
+	}
+
+	void TestPeriodic()
+	{
+		lw->Run();
+	}
+};
+
+START_ROBOT_CLASS(Robot);

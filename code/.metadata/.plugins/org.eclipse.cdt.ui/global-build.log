@@ -1,0 +1,7 @@
+14:13:16 **** Clean-only build of configuration Debug for project TestBoard1 ****
+rm -rf src/Robot.o src/Robot.d FRCUserProgram 
+Info: Nothing to build for 1571_Robot
+16:35:38 **** Rebuild of configuration Debug for project TestBoard1 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y -I/home/acohen/wpilib/cpp/current/include -I/home/acohen/Projects/Season2015/code/TestCode/TestBoard1/src -O0 -g3 -Wall -c -fmessage-length=0 -o src/Robot.o ../src/Robot.cpp 
+arm-frc-linux-gnueabi-g++ -L/home/acohen/wpilib/cpp/current/lib -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a -o FRCUserProgram src/Robot.o -lwpi 
