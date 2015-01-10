@@ -1,1 +1,5 @@
 Dimensions for electrical components: 15.5"x38"
+
+Electrical TODO list
+1. Discuss purchasing new Driverstation laptop
+
