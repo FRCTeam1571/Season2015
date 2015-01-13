@@ -3,6 +3,9 @@
 // Hello there!  Just messing with the code
 
 #include "WPILib.h"
+#include <BuiltInAccelerometer.h>
+#include <Encoder.h>
+#include <Gyro.h>
 #include <Joystick.h>
 #include <RobotDrive.h>
 #include <Talon.h>
