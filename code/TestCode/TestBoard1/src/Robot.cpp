@@ -2,6 +2,8 @@
 // Team: 1571
 // Hello there!  Just messing with the code, everyone.
 
+#include <cmath>
+
 #include "WPILib.h"
 #include <BuiltInAccelerometer.h>
 #include <Encoder.h>
@@ -10,6 +12,9 @@
 #include <RobotDrive.h>
 #include <Talon.h>
 
+namespace robot
+{
+
 class Robot: public IterativeRobot
 {
 
@@ -17,8 +22,7 @@ public:
 	Robot():
 		lw(NULL),
 		t1(0),
-		t2(1),
-		drive(t1, t2),
+		e(0, 1),
 		xbox(0)
 	{
 		lw = LiveWindow::GetInstance();
@@ -27,8 +31,8 @@ public:
 private:
 
 	LiveWindow* lw;
-	Talon t1, t2;
-	RobotDrive drive;
+	Talon t1;
+	Encoder e;
 	Joystick xbox;
 
 	void RobotInit()
@@ -53,7 +57,12 @@ private:
 
 	void TeleopPeriodic()
 	{
-		drive.ArcadeDrive(xbox);
+		double y = xbox.GetY();
+
+		if(abs(y) <= 0.1) t1.Set(0);
+		t1.Set(xbox.GetY());
+
+		std::cout << e.Get();
 	}
 
 	void TestPeriodic()
@@ -61,5 +70,9 @@ private:
 		lw->Run();
 	}
 };
+
+} /* namespace robot */
+
+using namespace robot;
 
 START_ROBOT_CLASS(Robot);
