@@ -1,0 +1,21 @@
+/*
+ * DriveTrain.cpp
+ *
+ *  Created on: Jan 29, 2015
+ *      Author: acohen
+ */
+
+#include <Subsystems/DriveTrain.h>
+
+namespace robot {
+
+DriveTrain::DriveTrain() {
+	// TODO Auto-generated constructor stub
+
+}
+
+void DriveTrain::InitDefaultCommand() {
+
+}
+
+} /* namespace robot */

@@ -1,0 +1,48 @@
+#include "WPILib.h"
+
+class Robot: public IterativeRobot
+{
+private:
+	LiveWindow *lw;
+
+	Talon t1;
+
+	Joystick stick;
+
+	double Update = 0.005;
+
+	void RobotInit()
+	{
+		lw = LiveWindow::GetInstance();
+		t1 = new Talon(0);
+		stick = new Joystick(0);
+	}
+
+	void AutonomousInit()
+	{
+
+	}
+
+	void AutonomousPeriodic()
+	{
+
+	}
+
+	void TeleopInit()
+	{
+
+	}
+
+	void TeleopPeriodic()
+	{
+		if
+		t1.Set(stick.GetX());
+	}
+
+	void TestPeriodic()
+	{
+		lw->Run();
+	}
+};
+
+START_ROBOT_CLASS(Robot);

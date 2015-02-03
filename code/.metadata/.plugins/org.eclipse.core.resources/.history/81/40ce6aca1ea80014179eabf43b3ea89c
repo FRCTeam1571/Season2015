@@ -1,0 +1,21 @@
+/*
+ * MoveElevator.h
+ *
+ *  Created on: Jan 29, 2015
+ *      Author: acohen
+ */
+
+#ifndef SRC_COMMANDS_MOVEELEVATOR_H_
+#define SRC_COMMANDS_MOVEELEVATOR_H_
+
+namespace robot {
+
+class MoveElevator {
+public:
+	MoveElevator();
+	virtual ~MoveElevator();
+};
+
+} /* namespace robot */
+
+#endif /* SRC_COMMANDS_MOVEELEVATOR_H_ */

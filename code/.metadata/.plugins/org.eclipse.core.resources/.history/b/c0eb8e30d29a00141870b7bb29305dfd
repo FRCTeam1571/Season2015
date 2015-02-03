@@ -1,0 +1,24 @@
+/*
+ * SensorArray.h
+ *
+ *  Created on: Jan 12, 2015
+ *      Author: acohen
+ */
+
+#include <cstdarg>
+#include <vector>
+
+#include <SensorBase.h>
+
+#ifndef SRC_SENSORARRAY_H_
+#define SRC_SENSORARRAY_H_
+
+class SensorArray {
+public:
+	SensorArray(...);
+	virtual ~SensorArray();
+
+	std::vector<SensorBase>* sensors;
+};
+
+#endif /* SRC_SENSORARRAY_H_ */

@@ -1,0 +1,22 @@
+/*
+ * DriveRobot.h
+ *
+ *  Created on: Jan 29, 2015
+ *      Author: acohen
+ */
+
+#ifndef SRC_COMMANDS_DRIVEROBOT_H_
+#define SRC_COMMANDS_DRIVEROBOT_H_
+
+#include <CommandBase.h>
+
+namespace robot {
+
+class DriveRobot: public CommandBase {
+public:
+	DriveRobot();
+};
+
+} /* namespace robot */
+
+#endif /* SRC_COMMANDS_DRIVEROBOT_H_ */

@@ -1,0 +1,19 @@
+/*
+ * MagneticSensor.h
+ *
+ *  Created on: Jan 10, 2015
+ *      Author: acohen
+ */
+
+#ifndef SRC_MAGNETICSENSOR_H_
+#define SRC_MAGNETICSENSOR_H_
+
+#include <SensorBase.h>
+
+class MagneticSensor: public SensorBase {
+public:
+	MagneticSensor();
+	virtual ~MagneticSensor();
+};
+
+#endif /* SRC_MAGNETICSENSOR_H_ */

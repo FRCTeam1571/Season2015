@@ -1,0 +1,18 @@
+/*
+ * SensorArray.cpp
+ *
+ *  Created on: Jan 12, 2015
+ *      Author: acohen
+ */
+
+#include <SensorArray.h>
+
+SensorArray::SensorArray(SensorBase s[]) {
+	// TODO Auto-generated constructor stub
+
+}
+
+SensorArray::~SensorArray() {
+	// TODO Auto-generated destructor stub
+}
+

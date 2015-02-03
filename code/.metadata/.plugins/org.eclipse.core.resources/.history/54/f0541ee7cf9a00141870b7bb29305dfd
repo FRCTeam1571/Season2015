@@ -1,0 +1,17 @@
+/*
+ * SensorArray.h
+ *
+ *  Created on: Jan 12, 2015
+ *      Author: acohen
+ */
+
+#ifndef SRC_SENSORARRAY_H_
+#define SRC_SENSORARRAY_H_
+
+class SensorArray {
+public:
+	SensorArray();
+	virtual ~SensorArray();
+};
+
+#endif /* SRC_SENSORARRAY_H_ */

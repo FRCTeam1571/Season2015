@@ -1,0 +1,27 @@
+/*
+ * DriveTrain.cpp
+ *
+ *  Created on: Jan 29, 2015
+ *      Author: acohen
+ */
+
+#include <Subsystems/DriveTrain.h>
+
+#include "RobotMap.h"
+
+namespace robot {
+
+DriveTrain::DriveTrain():
+Left(LeftVictor),
+Right(RightVictor),
+Drive(Left, Right)
+{
+	Subsystem("DriveTrain");
+
+}
+
+void DriveTrain::InitDefaultCommand() {
+
+}
+
+} /* namespace robot */

@@ -1,0 +1,41 @@
+#include "WPILib.h"
+#include <Victor.h>
+
+class Robot: public IterativeRobot
+{
+private:
+	LiveWindow *lw;
+	Victor v1, v2;
+
+	void RobotInit()
+	{
+		lw = LiveWindow::GetInstance();
+	}
+
+	void AutonomousInit()
+	{
+
+	}
+
+	void AutonomousPeriodic()
+	{
+
+	}
+
+	void TeleopInit()
+	{
+
+	}
+
+	void TeleopPeriodic()
+	{
+
+	}
+
+	void TestPeriodic()
+	{
+		lw->Run();
+	}
+};
+
+START_ROBOT_CLASS(Robot);

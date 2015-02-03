@@ -1,0 +1,30 @@
+/*
+ * DriveTrain.h
+ *
+ *  Created on: Jan 29, 2015
+ *      Author: acohen
+ */
+
+#ifndef SRC_SUBSYSTEMS_DRIVETRAIN_H_
+#define SRC_SUBSYSTEMS_DRIVETRAIN_H_
+
+#include <Commands/Subsystem.h>
+#include <RobotDrive.h>
+#include <Victor.h>
+
+namespace robot {
+
+class DriveTrain: public Subsystem {
+private:
+	Victor* Left;
+	Victor* Right;
+	RobotDrive* Drive;
+public:
+	DriveTrain();
+
+	void InitDefaultCommand();
+};
+
+} /* namespace robot */
+
+#endif /* SRC_SUBSYSTEMS_DRIVETRAIN_H_ */

@@ -1,0 +1,21 @@
+#include "OI.h"
+
+#include "RobotMap.h"
+
+OI::OI():
+DriveRobotCommand(),
+xbox(XboxPort)
+{}
+
+void OI::Poll() {
+	//Check to see if we need to update the motor speed
+	double dX = xbox->GetX() - prevX;
+	double dY = xbox->GetY() - prevY;
+	if(sqrt(pow(dX, 2) + pow(dY, 2)) >= 0.1) {
+		DriveRobotCommand->Start();
+		prevX += dX;
+		prevY += dY;
+	}
+}
+
+Joystick* OI::GetController() { return xbox; }

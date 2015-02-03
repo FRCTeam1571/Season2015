@@ -52,23 +52,35 @@ private:
 
 	void TeleopInit()
 	{
-
+		t1.Set(0);
 	}
 
 	void TeleopPeriodic()
 	{
-		double y = xbox.GetY();
+		double RPM = 55;
+		bool forward = !xbox.GetRawButton(1);
+		double EncoderRate = e.GetRate();
+		double EncoderDistance = e.Get();
 
-		if(abs(y) <= 0.1) t1.Set(0);
-		t1.Set(xbox.GetY());
+		SetRPM(&t1, RPM, forward);
 
-		std::cout << e.Get();
+		SmartDashboard::PutNumber("Raw encoder data", EncoderDistance);
+		SmartDashboard::PutNumber("Lift Motor Supposed RPM", RPM);
+		SmartDashboard::PutNumber("Lift Motor actual RPM", abs(EncoderRate) / 71.164 * 7);
+		SmartDashboard::PutString("Lift Motor Direction", (forward)?"Forward":"Backward");
 	}
 
 	void TestPeriodic()
 	{
 		lw->Run();
 	}
+
+	void SetRPM(Talon* motor, double RPM, bool forwards = true, double MaxRPM = 75){ //Written for specific motor type
+		double MotorValue = std::min(RPM / MaxRPM, 1.0);
+		SmartDashboard::PutNumber("SetRPM Value", MotorValue);
+		motor->Set(MotorValue * ((forwards)?1:-1));
+	}
+
 };
 
 } /* namespace robot */

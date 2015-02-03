@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="159" key="DIALOG_Y_ORIGIN"/>
+		<item value="385" key="DIALOG_X_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea">
 		<item value="/home/acohen/Projects/Season2015/code/TestCode" key="OUTSIDE_LOCATION"/>
 	</section>
@@ -15,6 +19,10 @@
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>
+		</list>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
 		</list>
 	</section>
 	<section name="NewWizardAction">

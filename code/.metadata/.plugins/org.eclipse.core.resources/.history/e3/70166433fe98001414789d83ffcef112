@@ -1,0 +1,18 @@
+/*
+ * MagneticSensor.cpp
+ *
+ *  Created on: Jan 10, 2015
+ *      Author: acohen
+ */
+
+#include <MagneticSensor.h>
+
+MagneticSensor::MagneticSensor() {
+	// TODO Auto-generated constructor stub
+
+}
+
+MagneticSensor::~MagneticSensor() {
+	// TODO Auto-generated destructor stub
+}
+

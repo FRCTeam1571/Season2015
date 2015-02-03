@@ -1,13 +1,24 @@
 #include "WPILib.h"
+#include <Victor.h>
+#include <RobotDrive.h>
+#include <Joystick.h>
 
 class Robot: public IterativeRobot
 {
 private:
 	LiveWindow *lw;
+	Victor* v1;
+	Victor* v2;
+	RobotDrive* drive;
+	Joystick* stick;
 
 	void RobotInit()
 	{
 		lw = LiveWindow::GetInstance();
+		v1 = new Victor(0);
+		v2 = new Victor(1);
+		drive = new RobotDrive(v2, v1);
+		stick = new Joystick(0);
 	}
 
 	void AutonomousInit()
@@ -27,7 +38,7 @@ private:
 
 	void TeleopPeriodic()
 	{
-
+		drive->ArcadeDrive(stick);
 	}
 
 	void TestPeriodic()

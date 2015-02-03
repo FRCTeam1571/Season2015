@@ -1,0 +1,23 @@
+#ifndef OI_H
+#define OI_H
+
+#include "WPILib.h"
+#include <Joystick.h>
+
+#include "Commands/DriveRobot.h"
+
+class OI
+{
+private:
+	robot::DriveRobot* DriveRobotCommand;
+
+	Joystick* xbox;
+	double prevX, prevY; //Used to determine if a DriveRobot command should be called
+public:
+	OI();
+
+	void Poll();
+	Joystick* GetController();
+};
+
+#endif

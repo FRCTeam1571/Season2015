@@ -1,0 +1,25 @@
+/*
+ * Elevator.h
+ *
+ *  Created on: Jan 29, 2015
+ *      Author: acohen
+ */
+
+#ifndef SRC_SUBSYSTEMS_ELEVATOR_H_
+#define SRC_SUBSYSTEMS_ELEVATOR_H_
+
+#include <Commands/Subsystem.h>
+
+namespace robot {
+
+class Elevator: public Subsystem {
+public:
+	Elevator();
+	virtual ~Elevator();
+
+	void InitDefaultCommand();
+};
+
+} /* namespace robot */
+
+#endif /* SRC_SUBSYSTEMS_ELEVATOR_H_ */
