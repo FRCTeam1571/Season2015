@@ -7228,3 +7228,9 @@ Binding(ALT+CTRL+P,
 
 !ENTRY org.eclipse.compare 4 1 2015-02-02 16:19:13.140
 !MESSAGE Saveable .bak_0.log was not added using a saveables lifecycle event.
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-02-02 16:20:55.372
+!MESSAGE Project: 1571_Robot Project Type: edu.wpi.first.wpilib.plugins.cpp.wizards.newproject.CPPProjectType$2@69a0c6ad
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-02-02 16:20:55.466
+!MESSAGE Indexed '1571_Robot' (0 sources, 0 headers) in 0.003 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
