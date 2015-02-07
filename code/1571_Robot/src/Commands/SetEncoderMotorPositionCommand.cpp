@@ -15,12 +15,15 @@ SetEncoderMotorPositionCommand::SetEncoderMotorPositionCommand()
 void SetEncoderMotorPositionCommand::Initialize()
 {
 	distanceToGo = goal - encodermotorsubsystem->getDistance();
+	distanceGone = 0;
 	encodermotorsubsystem->setSpeed((distanceToGo > 0)?1:-1);
 }
 
 void SetEncoderMotorPositionCommand::Execute()
 {
-
+	distanceGone = encodermotorsubsystem->getDistance();
+	distanceToGo -= distanceGone - lastDistanceGone;
+	lastDistanceGone = distanceGone;
 }
 
 bool SetEncoderMotorPositionCommand::IsFinished()
@@ -37,7 +40,7 @@ void SetEncoderMotorPositionCommand::End()
 
 void SetEncoderMotorPositionCommand::Interrupted()
 {
-	encodermotorsubsystem->setSpeed(0.0);
+	Set(0.0);
 }
 
 void SetEncoderMotorPositionCommand::Set(double position)

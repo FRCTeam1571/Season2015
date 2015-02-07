@@ -5,8 +5,8 @@
  *      Author: acohen
  */
 
-#ifndef SRC_SUBSYSTEMS_DRIVETRAINSYSTEM_H_
-#define SRC_SUBSYSTEMS_DRIVETRAINSYSTEM_H_
+#ifndef SRC_SUBSYSTEMS_DRIVETRAINSUBSYSTEM_H_
+#define SRC_SUBSYSTEMS_DRIVETRAINSUBSYSTEM_H_
 
 #include <Commands/Subsystem.h>
 
@@ -14,7 +14,7 @@
 #include <RobotDrive.h>
 #include <Victor.h>
 
-class DriveTrainSystem: public Subsystem {
+class DriveTrainSubsystem: public Subsystem {
 private:
 	Talon* left,* right;
 	RobotDrive* drive;
@@ -22,10 +22,9 @@ private:
 
 	const double MaxSpeed = 5.0; //Temp
 public:
-	DriveTrainSystem();
+	DriveTrainSubsystem();
 
-	void setSpeed(double leftSpeed, double rightSpeed);
-	void setSpeed(Joystick* stick);
+	void setSpeed(double speed, double rotation);
 };
 
-#endif /* SRC_SUBSYSTEMS_DRIVETRAINSYSTEM_H_ */
+#endif /* SRC_SUBSYSTEMS_DRIVETRAINSUBSYSTEM_H_ */

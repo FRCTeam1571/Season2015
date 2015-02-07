@@ -9,7 +9,12 @@
 
 UpdateEncoderMotorCommand::UpdateEncoderMotorCommand()
 {
+	Requires(encodermotorsubsystem);
+}
 
+void UpdateEncoderMotorCommand::Initialize()
+{
+	encodermotorsubsystem->zero();
 }
 
 void UpdateEncoderMotorCommand::Execute()
@@ -20,4 +25,14 @@ void UpdateEncoderMotorCommand::Execute()
 bool UpdateEncoderMotorCommand::IsFinished()
 {
 	return false;
+}
+
+void UpdateEncoderMotorCommand::End()
+{
+	//Can't reach; command must be canceled manually
+}
+
+void UpdateEncoderMotorCommand::Interrupted()
+{
+	encodermotorsubsystem->setSpeed(0.0);
 }

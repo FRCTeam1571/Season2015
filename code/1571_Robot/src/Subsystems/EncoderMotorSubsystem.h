@@ -24,6 +24,7 @@ private:
 
 	const double GearRatio = 71.164; //Only the built in gearbox. Other gearing will need to eventually be factored in
 	const double RevolutionsPerMinute = 45; //Varies under load, but should be fine as-is
+	const double MaxRevolutionsPerMinute = 75;
 	const double DistancePerRevolution = 4; //Temp number; will be fixed later
 	const double MaxDistance = 20; //Again, temporary until final planning
 

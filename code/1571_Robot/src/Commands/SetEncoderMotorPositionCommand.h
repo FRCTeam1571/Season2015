@@ -10,10 +10,10 @@
 
 #include <CommandBase.h>
 
-class SetEncoderMotorPositionCommand: public CommandBase {
+class SetEncoderMotorPositionCommand : public CommandBase {
 private:
-	double distanceToGo = 0, distanceGone = 0;
-	double goal;
+	double distanceToGo = 0, distanceGone = 0, lastDistanceGone = 0;
+	double goal = 0;
 public:
 	SetEncoderMotorPositionCommand();
 

@@ -21,7 +21,7 @@ controller(EncoderMotorTalonPort)
 
 void EncoderMotorSubsystem::update()
 {
-		double newDistance = builtin->Get() / GearRatio / DistancePerRevolution;
+	double newDistance = builtin->Get() / GearRatio / DistancePerRevolution;
 
 	if(newDistance < 0) {
 		setSpeed(0.0);
@@ -44,7 +44,7 @@ void EncoderMotorSubsystem::setSpeed(double newSpeed, bool isNormalized = true)
 		newSpeed = fmin((newSpeed * 60) / DistancePerRevolution / RevolutionsPerMinute, 1.0);
 	}
 
-	controller->Set(newSpeed);
+	controller->Set(newSpeed * (RevolutionsPerMinute / MaxRevolutionsPerMinute));
 }
 
 void EncoderMotorSubsystem::zero()

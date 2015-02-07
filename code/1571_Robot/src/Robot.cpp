@@ -9,6 +9,8 @@ private:
 	UpdateEncoderMotorCommand* updateencodermotor;
 	LiveWindow* lw;
 
+	OI* interface;
+
 	void RobotInit()
 	{
 		CommandBase::init();
@@ -41,6 +43,8 @@ private:
 	void TeleopPeriodic()
 	{
 		Scheduler::GetInstance()->Run();
+
+		interface->poll();
 	}
 
 	void TestPeriodic()
