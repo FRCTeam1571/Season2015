@@ -1,0 +1,39 @@
+/*
+ * EncoderMotorSubsystem.cpp
+ *
+ *  Created on: Feb 2, 2015
+ *      Author: acohen
+ */
+
+#include <Subsystems/EncoderMotorSubsystem.h>
+
+#include <cmath>
+
+#include "../RobotMap.h"
+
+EncoderMotorSubsystem::EncoderMotorSubsystem():
+builtin(EncoderMotorEncoderPortA, EncoderMotorEncoderPortB),
+controller(EncoderMotorTalonPort)
+{
+	builtin->Reset();
+}
+
+void EncoderMotorSubsystem::update()
+{
+
+}
+
+void EncoderMotorSubsystem::setSpeed(double newSpeed, bool isNormalized = true)
+{
+	if(!isNormalized) {
+		newSpeed = fmin((newSpeed * 60) / DistancePerRevolution / RevolutionsPerMinute, 1.0);
+	}
+
+
+}
+
+void EncoderMotorSubsystem::zero()
+{
+	builtin->Reset();
+	distanceFromZero = 0;
+}

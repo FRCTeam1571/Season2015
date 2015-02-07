@@ -9,6 +9,10 @@
 	</section>
 	<section name="BasicNewProjectResourceWizard">
 	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
 	<section name="ExternalProjectImportWizard">
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
@@ -21,9 +25,12 @@
 			<item value=""/>
 		</list>
 	</section>
-	<section name="WORKBENCH_SETTINGS">
-		<list key="ENABLED_TRANSFERS">
-		</list>
+	<section name="CleanDialogSettings">
+		<item value="486" key="DIALOG_WIDTH"/>
+		<item value="114" key="DIALOG_Y_ORIGIN"/>
+		<item value="386" key="DIALOG_HEIGHT"/>
+		<item value="441" key="DIALOG_X_ORIGIN"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
 	</section>
 	<section name="NewWizardAction">
 		<item value="edu.wpi.first.wpilib.plugins.cpp.wizards.newproject.NewCPPWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
@@ -31,12 +38,5 @@
 			<item value="org.eclipse.ui.Basic"/>
 			<item value="edu.wpi.first.wpilib.plugins.cpp"/>
 		</list>
-	</section>
-	<section name="CleanDialogSettings">
-		<item value="486" key="DIALOG_WIDTH"/>
-		<item value="114" key="DIALOG_Y_ORIGIN"/>
-		<item value="441" key="DIALOG_X_ORIGIN"/>
-		<item value="386" key="DIALOG_HEIGHT"/>
-		<item value="false" key="TOGGLE_SELECTED"/>
 	</section>
 </section>

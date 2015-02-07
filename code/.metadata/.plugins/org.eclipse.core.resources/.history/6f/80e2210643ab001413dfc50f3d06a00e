@@ -1,0 +1,23 @@
+/*
+ * EncoderMotorSubsystem.cpp
+ *
+ *  Created on: Feb 2, 2015
+ *      Author: acohen
+ */
+
+#include <Subsystems/EncoderMotorSubsystem.h>
+
+#include "../RobotMap.h"
+
+EncoderMotorSubsystem::EncoderMotorSubsystem():
+builtin(EncoderMotorEncoderPortA, EncoderMotorEncoderPortB),
+controller(EncoderMotorTalonPort)
+{
+	builtin->Reset();
+}
+
+void EncoderMotorSubsystem::update()
+{
+
+}
+

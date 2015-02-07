@@ -36,7 +36,7 @@ public:
 
 	double getDistance();
 
-	void setSpeed(double newSpeed, bool isNormalized);
+	void setSpeed(double newSpeed, bool isNormalized = true);
 	void zero();
 };
 

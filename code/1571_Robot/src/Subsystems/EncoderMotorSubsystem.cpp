@@ -16,7 +16,7 @@ setPosition(),
 builtin(EncoderMotorEncoderPortA, EncoderMotorEncoderPortB),
 controller(EncoderMotorTalonPort)
 {
-	builtin->Reset();
+	zero();
 }
 
 void EncoderMotorSubsystem::update()
@@ -25,6 +25,7 @@ void EncoderMotorSubsystem::update()
 
 	if(newDistance < 0) {
 		setSpeed(0.0);
+		setPosition->Set(0.0);
 		zero();
 	}
 

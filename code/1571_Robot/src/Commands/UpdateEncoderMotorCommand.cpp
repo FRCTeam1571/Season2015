@@ -1,0 +1,23 @@
+/*
+ * UpdateEncoderMotorCommand.cpp
+ *
+ *  Created on: Feb 2, 2015
+ *      Author: acohen
+ */
+
+#include <Commands/UpdateEncoderMotorCommand.h>
+
+UpdateEncoderMotorCommand::UpdateEncoderMotorCommand()
+{
+
+}
+
+void UpdateEncoderMotorCommand::Execute()
+{
+	encodermotorsubsystem->update();
+}
+
+bool UpdateEncoderMotorCommand::IsFinished()
+{
+	return false;
+}

@@ -1,0 +1,24 @@
+/*
+ * EncoderMotorSubsystem.h
+ *
+ *  Created on: Feb 2, 2015
+ *      Author: acohen
+ */
+
+#ifndef SRC_SUBSYSTEMS_ENCODERMOTORSUBSYSTEM_H_
+#define SRC_SUBSYSTEMS_ENCODERMOTORSUBSYSTEM_H_
+
+#include <Commands/Subsystem.h>
+
+#include <Encoder.h>
+#include <Talon.h>
+
+class EncoderMotorSubsystem: public Subsystem {
+private:
+	Encoder* builtin;
+	Talon* controller;
+public:
+	EncoderMotorSubsystem();
+};
+
+#endif /* SRC_SUBSYSTEMS_ENCODERMOTORSUBSYSTEM_H_ */

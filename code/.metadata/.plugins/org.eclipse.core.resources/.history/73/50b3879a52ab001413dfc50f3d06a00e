@@ -1,0 +1,16 @@
+#ifndef OI_H
+#define OI_H
+
+#include "WPILib.h"
+
+#include "Commands/*"
+
+class OI
+{
+private:
+
+public:
+	OI();
+};
+
+#endif

@@ -1,0 +1,14 @@
+/*
+ * EncoderMotorSubsystem.cpp
+ *
+ *  Created on: Feb 2, 2015
+ *      Author: acohen
+ */
+
+#include <Subsystems/EncoderMotorSubsystem.h>
+
+EncoderMotorSubsystem::EncoderMotorSubsystem() {
+	// TODO Auto-generated constructor stub
+
+}
+

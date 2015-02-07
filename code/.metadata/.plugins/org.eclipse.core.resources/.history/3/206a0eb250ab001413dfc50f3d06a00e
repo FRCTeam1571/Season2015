@@ -1,0 +1,18 @@
+/*
+ * DriveTrainSystem.h
+ *
+ *  Created on: Feb 2, 2015
+ *      Author: acohen
+ */
+
+#ifndef SRC_SUBSYSTEMS_DRIVETRAINSYSTEM_H_
+#define SRC_SUBSYSTEMS_DRIVETRAINSYSTEM_H_
+
+#include <Commands/Subsystem.h>
+
+class DriveTrainSystem: public Subsystem {
+public:
+	DriveTrainSystem();
+};
+
+#endif /* SRC_SUBSYSTEMS_DRIVETRAINSYSTEM_H_ */

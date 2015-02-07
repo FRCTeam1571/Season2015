@@ -10,8 +10,8 @@
  * floating around.
  */
 
-const int DriveSystemLeftVictorPort = 0;
-const int DriveSystemRightVictorPort = 1;
+const int DriveTrainLeftVictorPort = 0;
+const int DriveTrainRightVictorPort = 1;
 
 const int EncoderMotorEncoderPortA = 0;
 const int EncoderMotorEncoderPortB = 1;

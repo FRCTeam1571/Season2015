@@ -12,7 +12,7 @@
 
 class SetEncoderMotorPositionCommand: public CommandBase {
 private:
-	double distanceToGo, distanceGone;
+	double distanceToGo = 0, distanceGone = 0;
 	double goal;
 public:
 	SetEncoderMotorPositionCommand();
