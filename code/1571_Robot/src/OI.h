@@ -6,25 +6,35 @@
 #include <Joystick.h>
 
 #include "RobotMap.h"
+#include "Commands/DriveRobotCommand.h"
 #include "Commands/SetEncoderMotorPositionCommand.h"
 
-typedef struct
+struct ToggleButton
 {
 	int mapping;
 	bool pressed = false;
 	bool toggle = false;
-} Button;
 
-typedef struct
+	ToggleButton(int map):
+		mapping(map)
+	{}
+};
+
+struct Stick
 {
 	int XMap, YMap;
 	double XVal = 0, YVal = 0;
-} Stick;
+
+	Stick(int x, int y):
+		XMap(x),
+		YMap(y)
+	{}
+};
 
 #define Toggle(button, controller) button.toggle = \
 	(!button.pressed && controller->GetRawButton(button.mapping))?\
 			(button.toggle = (button.toggle)?false:true):\
-					(button.toggle = button.toggle);\
+			(button.pressed = false);\
 	button.pressed = controller->GetRawButton(button.mapping) //Don't touch!
 
 #define GetAxis(controller, map) fmax(xboxDeadZone * ((controller->GetRawAxis(map) > 0)?1:-1),\
@@ -42,10 +52,10 @@ private:
 public:
 	OI();
 
-	Button RaiseLift = {RightBumper};
-	Button LowerLift = {LeftBumper};
+	ToggleButton RaiseLift = ToggleButton(RightBumper);
+	ToggleButton LowerLift = ToggleButton(LeftBumper);
 
-	Stick DriveRobot = {LeftStickX, LeftStickY};
+	Stick DriveRobot = Stick(LeftStickX, LeftStickY);
 
 	void poll();
 };

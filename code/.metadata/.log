@@ -11631,3 +11631,55 @@ org.eclipse.core.runtime.CoreException: No property tester contributes a propert
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 !SUBENTRY 1 org.eclipse.core.expressions 4 201 2015-02-07 11:35:49.950
 !MESSAGE No property tester contributes a property org.eclipse.core.resources.projectNature to type class org.eclipse.cdt.internal.core.model.TranslationUnit
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-02-07 14:20:49.339
+!MESSAGE Indexed '1571_Robot' (8 sources, 388 headers) in 15.8 sec: 42,456 declarations; 58,935 references; 0 unresolved inclusions; 32 syntax errors; 6 unresolved names (0.0059%)
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-02-07 14:28:01.860
+!MESSAGE [edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@59fadcca, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@64b57fec, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@47e1929b, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@2a6022fb, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@d98a279, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@1fd2bce8, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@447033aa, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@22500100, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@3271b899, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@480e5eae, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@276a1677, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@25e8f2d8, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@609f5659, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@7cde1e9d, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@5aac1576, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@57b5247b, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@356e3439, edu.wpi.first.wpilib.plugins.cpp.wizards.examples.ExampleCPPProject@5626a596]
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-02-07 14:28:01.861
+!MESSAGE [edu.wpi.first.wpilib.plugins.core.wizards.Tag@341470a, edu.wpi.first.wpilib.plugins.core.wizards.Tag@329ee331, edu.wpi.first.wpilib.plugins.core.wizards.Tag@5d55bfed, edu.wpi.first.wpilib.plugins.core.wizards.Tag@28ab907a, edu.wpi.first.wpilib.plugins.core.wizards.Tag@179a4e72, edu.wpi.first.wpilib.plugins.core.wizards.Tag@13942a79, edu.wpi.first.wpilib.plugins.core.wizards.Tag@647077f9, edu.wpi.first.wpilib.plugins.core.wizards.Tag@13d4aff3, edu.wpi.first.wpilib.plugins.core.wizards.Tag@706b84b0, edu.wpi.first.wpilib.plugins.core.wizards.Tag@22d47879, edu.wpi.first.wpilib.plugins.core.wizards.Tag@2b3161cc, edu.wpi.first.wpilib.plugins.core.wizards.Tag@370bae3b, edu.wpi.first.wpilib.plugins.core.wizards.Tag@5fdbbfb8, edu.wpi.first.wpilib.plugins.core.wizards.Tag@5407fa32, edu.wpi.first.wpilib.plugins.core.wizards.Tag@57bb13b7]
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-02-07 14:28:25.846
+!MESSAGE Indexed 'PacGoat' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+!SESSION 2015-02-09 16:17:50.502 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_75
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY edu.wpi.first.wpilib.plugins.riolog 4 0 2015-02-09 16:17:53.442
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: edu.wpi.first.wpilib.plugins.riolog [470]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-02-09 16:18:28.712
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-02-09 16:18:28.715
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-02-09 16:18:28.766
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-02-09 16:18:28.766
+!MESSAGE Installedcpp
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-02-09 16:18:29.178
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-02-09 16:18:29.178
+!MESSAGE Installedjava

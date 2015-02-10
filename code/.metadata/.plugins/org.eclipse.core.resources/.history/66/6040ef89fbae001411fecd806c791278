@@ -1,0 +1,40 @@
+#ifndef OI_H
+#define OI_H
+
+#include "WPILib.h"
+
+#include <Joystick.h>
+
+#include "RobotMap.h"
+#include "Commands/SetEncoderMotorPositionCommand.h"
+
+typedef struct
+{
+	int mapping;
+	bool pressed = false;
+} Button;
+
+typedef struct
+{
+	int XMap, YMap;
+	double XVal, YVal;
+} Stick;
+
+class OI
+{
+private:
+	SetEncoderMotorPositionCommand* setencodermotorposition;
+
+	Joystick* xbox;
+
+	Button RaiseLift = {RightBumper};
+	Button LowerLift = {LeftBumper};
+
+	Stick
+public:
+	OI();
+
+	void poll();
+};
+
+#endif

@@ -1,0 +1,44 @@
+/*
+ * SetEncoderMotorPositionCommand.cpp
+ *
+ *  Created on: Feb 2, 2015
+ *      Author: acohen
+ */
+
+#include <Commands/SetEncoderMotorPositionCommand.h>
+
+SetEncoderMotorPositionCommand::SetEncoderMotorPositionCommand()
+{
+	Requires(encodermotorsubsystem);
+}
+
+void SetEncoderMotorPositionCommand::Initialize()
+{
+	encodermotorsubsystem->distanceToGo = encodermotorsubsystem->goal - encodermotorsubsystem->getDistance();
+	encodermotorsubsystem->distanceGone = 0;
+	encodermotorsubsystem->setSpeed((encodermotorsubsystem->distanceToGo > 0)?1:-1);
+}
+
+void SetEncoderMotorPositionCommand::Execute()
+{
+	encodermotorsubsystem->distanceGone = encodermotorsubsystem->getDistance();
+	encodermotorsubsystem->distanceToGo -= encodermotorsubsystem->distanceGone - encodermotorsubsystem->lastDistanceGone;
+	encodermotorsubsystem->lastDistanceGone = encodermotorsubsystem->distanceGone;
+}
+
+bool SetEncoderMotorPositionCommand::IsFinished()
+{
+	if(abs(encodermotorsubsystem->goal - encodermotorsubsystem->getDistance()) < 0.1) {
+		return true;
+	} else return false;
+}
+
+void SetEncoderMotorPositionCommand::End()
+{
+	encodermotorsubsystem->setSpeed(0.0);
+}
+
+void SetEncoderMotorPositionCommand::Interrupted()
+{
+	Set(0.0);
+}

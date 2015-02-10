@@ -1,0 +1,19 @@
+#include "OI.h"
+
+OI::OI():
+setencodermotorposition(),
+xbox(0)
+{
+
+}
+
+#define Toggle(button) button.toggle = \
+	(!button.pressed && button.pressed = xbox->GetButtonRaw(button.mapping))?\
+			button.toggle = (button.toggle)?false:true:\
+					button.toggle = button.toggle
+
+void OI::poll()
+{
+	Toggle(RaiseLift);
+
+}

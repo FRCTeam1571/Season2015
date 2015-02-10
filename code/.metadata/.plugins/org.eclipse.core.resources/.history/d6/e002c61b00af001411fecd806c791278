@@ -1,0 +1,14 @@
+/*
+ * DriveRobotCommand.cpp
+ *
+ *  Created on: Feb 7, 2015
+ *      Author: acohen
+ */
+
+#include <Commands/DriveRobotCommand.h>
+
+DriveRobotCommand::DriveRobotCommand() {
+	// TODO Auto-generated constructor stub
+
+}
+

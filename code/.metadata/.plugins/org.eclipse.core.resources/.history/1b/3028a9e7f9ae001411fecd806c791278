@@ -1,0 +1,8 @@
+#include "OI.h"
+
+OI::OI():
+setencodermotorposition(),
+xbox(0)
+{
+
+}

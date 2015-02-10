@@ -12,11 +12,10 @@
 #include "../RobotMap.h"
 
 EncoderMotorSubsystem::EncoderMotorSubsystem():
-setPosition(),
-builtin(EncoderMotorEncoderPortA, EncoderMotorEncoderPortB),
-controller(EncoderMotorTalonPort)
+Subsystem("EncoderMotorSubsystem")
 {
-	zero();
+	builtin = new Encoder(EncoderMotorEncoderPortA, EncoderMotorEncoderPortB);
+	controller = new Talon(EncoderMotorTalonPort);
 }
 
 void EncoderMotorSubsystem::update()
@@ -25,7 +24,6 @@ void EncoderMotorSubsystem::update()
 
 	if(newDistance < 0) {
 		setSpeed(0.0);
-		setPosition->Set(0.0);
 		zero();
 	}
 
@@ -38,7 +36,7 @@ double EncoderMotorSubsystem::getDistance()
 	return distanceFromZero;
 }
 
-void EncoderMotorSubsystem::setSpeed(double newSpeed, bool isNormalized = true)
+void EncoderMotorSubsystem::setSpeed(double newSpeed, bool isNormalized)
 {
 	if(!isNormalized) {
 		newSpeed = fmin((newSpeed * 60) / DistancePerRevolution / RevolutionsPerMinute, 1.0);

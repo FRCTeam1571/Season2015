@@ -1,0 +1,15 @@
+#include "OI.h"
+
+#include "RobotMap.h"
+
+OI::OI():
+setencodermotorposition(),
+xbox(0)
+{
+
+}
+
+void OI::poll()
+{
+
+}

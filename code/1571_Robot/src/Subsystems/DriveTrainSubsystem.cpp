@@ -9,12 +9,11 @@
 #include "../RobotMap.h"
 
 DriveTrainSubsystem::DriveTrainSubsystem():
-left(DriveTrainLeftVictorPort),
-right(DriveTrainRightVictorPort),
-drive(left, right),
-gyro(0)
+Subsystem("DriveTrainSubsystem")
 {
-
+	left = new Victor(DriveTrainLeftVictorPort);
+	right = new Victor(DriveTrainRightVictorPort);
+	drive = new RobotDrive(left, right);
 }
 
 void DriveTrainSubsystem::setSpeed(double speed, double rotation)

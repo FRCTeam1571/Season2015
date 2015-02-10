@@ -2,6 +2,7 @@
 #include "Commands/Command.h"
 #include "Commands/UpdateEncoderMotorCommand.h"
 #include "CommandBase.h"
+#include "OI.h"
 
 class Robot: public IterativeRobot
 {

@@ -5,7 +5,7 @@
 #include "Commands/Command.h"
 #include "Subsystems/DriveTrainSubsystem.h"
 #include "Subsystems/EncoderMotorSubsystem.h"
-#include "OI.h"
+
 #include "WPILib.h"
 
 /**
@@ -22,7 +22,6 @@ public:
 	// Create a single static instance of all of your subsystems
 	static EncoderMotorSubsystem* encodermotorsubsystem;
 	static DriveTrainSubsystem* drivetrainsubsystem;
-	static OI* oi;
 };
 
 #endif
