@@ -1,13 +1,10 @@
 #include "WPILib.h"
-#include "Commands/Command.h"
-#include "Commands/UpdateEncoderMotorCommand.h"
 #include "CommandBase.h"
 #include "OI.h"
 
 class Robot: public IterativeRobot
 {
 private:
-	UpdateEncoderMotorCommand* updateencodermotor;
 	LiveWindow* lw;
 
 	OI* interface;
@@ -15,10 +12,7 @@ private:
 	void RobotInit()
 	{
 		CommandBase::init();
-		updateencodermotor = new UpdateEncoderMotorCommand();
 		lw = LiveWindow::GetInstance();
-
-		updateencodermotor->Start();
 	}
 	
 	void DisabledPeriodic()

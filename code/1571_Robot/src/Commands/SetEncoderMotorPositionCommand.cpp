@@ -24,6 +24,8 @@ void SetEncoderMotorPositionCommand::Execute()
 	distanceGone = encodermotorsubsystem->getDistance();
 	distanceToGo -= distanceGone - lastDistanceGone;
 	lastDistanceGone = distanceGone;
+
+	encodermotorsubsystem->update();
 }
 
 bool SetEncoderMotorPositionCommand::IsFinished()
