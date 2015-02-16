@@ -1,0 +1,14 @@
+/*
+ * MoveToteHolderCommand.cpp
+ *
+ *  Created on: Feb 16, 2015
+ *      Author: acohen
+ */
+
+#include <Commands/MoveToteHolderCommand.h>
+
+MoveToteHolderCommand::MoveToteHolderCommand() {
+	// TODO Auto-generated constructor stub
+
+}
+

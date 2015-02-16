@@ -5,6 +5,7 @@
 #include "Commands/Command.h"
 #include "Subsystems/DriveTrainSubsystem.h"
 #include "Subsystems/EncoderMotorSubsystem.h"
+#include "Subsystems/ToteHolderSubsystem.h"
 
 #include "WPILib.h"
 
@@ -20,8 +21,9 @@ public:
 	CommandBase();
 	static void init();
 	// Create a single static instance of all of your subsystems
-	static EncoderMotorSubsystem* encodermotorsubsystem;
 	static DriveTrainSubsystem* drivetrainsubsystem;
+	static EncoderMotorSubsystem* encodermotorsubsystem;
+	static ToteHolderSubsystem* toteholdersubsystem;
 };
 
 #endif

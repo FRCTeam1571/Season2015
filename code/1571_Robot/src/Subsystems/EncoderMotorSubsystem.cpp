@@ -16,6 +16,7 @@ Subsystem("EncoderMotorSubsystem")
 {
 	builtin = new Encoder(EncoderMotorEncoderPortA, EncoderMotorEncoderPortB);
 	motor = new Talon(EncoderMotorTalonPort);
+	resetSwitch = new DigitalInput(EncoderMotorResetSwitchPort);
 
 	zero();
 }
@@ -42,6 +43,9 @@ EncoderMotorLiftPosition EncoderMotorSubsystem::nextPosition()
 	case ZERO:
 		next = HALF_TOTE;
 		break;
+	case SET_DOWN:
+		next = HALF_TOTE;
+		break;
 	case HALF_TOTE:
 		next = FULL_TOTE;
 		break;
@@ -65,8 +69,11 @@ EncoderMotorLiftPosition EncoderMotorSubsystem::lastPosition()
 	case ZERO:
 		last = ZERO;
 		break;
+	case SET_DOWN:
+		last = SET_DOWN;
+		break;
 	case HALF_TOTE:
-		last = ZERO;
+		last = SET_DOWN;
 		break;
 	case FULL_TOTE:
 		last = HALF_TOTE;
@@ -74,7 +81,7 @@ EncoderMotorLiftPosition EncoderMotorSubsystem::lastPosition()
 	case RESET:
 		last = RESET;
 		break;
-	//No ZERO or RESET because RESET goes to zero and ZERO is zero
+	//No ZERO or RESET because RESET goes to zero and ZERO is zero (And SET_DOWN is lowest)
 	}
 
 	return last;

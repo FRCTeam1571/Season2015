@@ -1,0 +1,14 @@
+/*
+ * ToteHolderSubsystem.cpp
+ *
+ *  Created on: Feb 16, 2015
+ *      Author: acohen
+ */
+
+#include <Subsystems/ToteHolderSubsystem.h>
+
+ToteHolderSubsystem::ToteHolderSubsystem() {
+	// TODO Auto-generated constructor stub
+
+}
+

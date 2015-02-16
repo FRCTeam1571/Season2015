@@ -7,6 +7,8 @@
 
 #include <Commands/SetEncoderMotorPositionCommand.h>
 
+#include "../RobotMap.h"
+
 SetEncoderMotorPositionCommand::SetEncoderMotorPositionCommand()
 {
 	Requires(encodermotorsubsystem);
@@ -16,7 +18,8 @@ void SetEncoderMotorPositionCommand::Initialize()
 {
 	distanceToGo = goal - encodermotorsubsystem->getDistance();
 	distanceGone = 0;
-	encodermotorsubsystem->setDirection((distanceToGo > 0)?1:-1);
+	direction = (distanceToGo > 0)?1:-1;
+	encodermotorsubsystem->setDirection(direction);
 }
 
 void SetEncoderMotorPositionCommand::Execute()
@@ -30,7 +33,9 @@ void SetEncoderMotorPositionCommand::Execute()
 
 bool SetEncoderMotorPositionCommand::IsFinished()
 {
-	if(std::fabs(goal - encodermotorsubsystem->getDistance()) < 0.01) {
+	if(std::fabs((long double)(goal - encodermotorsubsystem->getDistance())) < 0.1) {
+		return true;
+	} else if((goal - encodermotorsubsystem->getDistance()) * direction < 0) {
 		return true;
 	} else return false;
 }
@@ -46,7 +51,7 @@ void SetEncoderMotorPositionCommand::End()
 
 void SetEncoderMotorPositionCommand::Interrupted()
 {
-	End();
+	encodermotorsubsystem->setDirection(0);
 }
 
 void SetEncoderMotorPositionCommand::Set(EncoderMotorLiftPosition to)
@@ -62,6 +67,9 @@ void SetEncoderMotorPositionCommand::Set(EncoderMotorLiftPosition to)
 	{
 	case ZERO:
 		goal = EncoderMotorLiftZero;
+		break;
+	case SET_DOWN:
+		goal = EncoderMotorLiftSetDown;
 		break;
 	case HALF_TOTE:
 		goal = EncoderMotorLiftHalfTote;

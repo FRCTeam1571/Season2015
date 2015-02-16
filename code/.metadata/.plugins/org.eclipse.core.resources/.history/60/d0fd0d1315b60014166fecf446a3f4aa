@@ -1,0 +1,14 @@
+/*
+ * OpenToteHolderCommand.cpp
+ *
+ *  Created on: Feb 16, 2015
+ *      Author: acohen
+ */
+
+#include <Commands/OpenToteHolderCommand.h>
+
+OpenToteHolderCommand::OpenToteHolderCommand() {
+	// TODO Auto-generated constructor stub
+
+}
+

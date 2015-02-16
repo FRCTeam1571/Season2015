@@ -1,0 +1,70 @@
+#ifndef OI_H
+#define OI_H
+
+#include "WPILib.h"
+
+#include <Joystick.h>
+
+#include "RobotMap.h"
+#include "Commands/DriveRobotCommand.h"
+#include "Commands/SetEncoderMotorPositionCommand.h"
+
+struct ToggleButton
+{
+	int mapping;
+	bool lastPressed = false;
+	bool pressed = false;
+	bool toggle = false;
+
+	ToggleButton(int map):
+		mapping(map)
+	{}
+};
+
+struct Stick
+{
+	int XMap, YMap;
+	double XVal = 0, YVal = 0;
+
+	Stick(int x, int y):
+		XMap(x),
+		YMap(y)
+	{}
+};
+
+//Checks whether or not a button press should be counted
+#define Toggle(button, controller)\
+	button.lastPressed = button.pressed;\
+	button.pressed = controller->GetRawButton(button.mapping);\
+	button.toggle = \
+	(button.pressed > button.lastPressed)?\
+	true:\
+	false;
+
+//Syntactic sugar for checking a joystick dead zone
+#define GetAxis(controller, map)\
+		(controller->GetRawAxis(map) > 0.2)?\
+				controller->GetRawAxis(map):\
+				0;
+
+class OI
+{
+private:
+	DriveRobotCommand* driverobot;
+	SetEncoderMotorPositionCommand* setencodermotorposition;
+
+	Joystick* xbox;
+
+	double xboxDeadZone = 0.2; //Distance from zero in which input is zero
+public:
+	OI();
+
+	ToggleButton RaiseLift = ToggleButton(RightBumper);
+	ToggleButton LowerLift = ToggleButton(LeftBumper);
+
+	Stick DriveRobot = Stick(LeftStickX, LeftStickY);
+
+	void poll();
+};
+
+#endif

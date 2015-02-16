@@ -1,0 +1,18 @@
+/*
+ * ToteHolderSubsystem.h
+ *
+ *  Created on: Feb 16, 2015
+ *      Author: acohen
+ */
+
+#ifndef SRC_SUBSYSTEMS_TOTEHOLDERSUBSYSTEM_H_
+#define SRC_SUBSYSTEMS_TOTEHOLDERSUBSYSTEM_H_
+
+#include <Commands/Subsystem.h>
+
+class ToteHolderSubsystem: public Subsystem {
+public:
+	ToteHolderSubsystem();
+};
+
+#endif /* SRC_SUBSYSTEMS_TOTEHOLDERSUBSYSTEM_H_ */

@@ -1,0 +1,49 @@
+/*
+ * MoveToteHolderCommand.cpp
+ *
+ *  Created on: Feb 16, 2015
+ *      Author: acohen
+ */
+
+#include <Commands/MoveToteHolderCommand.h>
+
+MoveToteHolderCommand::MoveToteHolderCommand()
+{
+	Requires(toteholdersubsystem);
+}
+
+void MoveToteHolderCommand::Initialize()
+{
+
+}
+
+void MoveToteHolderCommand::Execute()
+{
+	Cancel();
+}
+
+bool MoveToteHolderCommand::IsFinished()
+{
+
+}
+
+void MoveToteHolderCommand::Interrupted()
+{
+
+}
+
+void MoveToteHolderCommand::End()
+{
+
+}
+
+void MoveToteHolderCommand::Open()
+{
+
+}
+
+void MoveToteHolderCommand::End()
+{
+
+}
+}

@@ -1,0 +1,51 @@
+/*
+ * DriveRobotCommand.cpp
+ *
+ *  Created on: Feb 7, 2015
+ *      Author: acohen
+ */
+
+#include <Commands/DriveRobotCommand.h>
+
+DriveRobotCommand::DriveRobotCommand()
+{
+
+	Requires(drivetrainsubsystem);
+
+}
+
+void DriveRobotCommand::Initialize()
+{
+	SmartDashboard::PutNumber("Speed", robotSpeed);
+	SmartDashboard::PutNumber("Rotation", robotRotation);
+
+}
+
+void DriveRobotCommand::Execute()
+{
+
+}
+
+bool DriveRobotCommand::IsFinished()
+{
+
+	return true;
+
+
+}
+
+void DriveRobotCommand::End()
+{
+
+}
+
+void DriveRobotCommand::Interrupted()
+{
+
+}
+
+void DriveRobotCommand::Drive(double speed, double rotation)
+{
+	drivetrainsubsystem->setSpeed(speed, rotation);
+}
+

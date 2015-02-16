@@ -1,9 +1,7 @@
-09:36:23 **** Incremental Build of configuration Debug for project 1571_Robot ****
+12:26:32 **** Incremental Build of configuration Debug for project 1571_Robot ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y -I/home/acohen/wpilib/cpp/current/include -I/home/acohen/Projects/Season2015/code/1571_Robot/src -O0 -g3 -Wall -c -fmessage-length=0 -o src/OI.o ../src/OI.cpp 
-arm-frc-linux-gnueabi-g++ -std=c++1y -I/home/acohen/wpilib/cpp/current/include -I/home/acohen/Projects/Season2015/code/1571_Robot/src -O0 -g3 -Wall -c -fmessage-length=0 -o src/Robot.o ../src/Robot.cpp 
 arm-frc-linux-gnueabi-g++ -std=c++1y -I/home/acohen/wpilib/cpp/current/include -I/home/acohen/Projects/Season2015/code/1571_Robot/src -O0 -g3 -Wall -c -fmessage-length=0 -o src/Subsystems/DriveTrainSubsystem.o ../src/Subsystems/DriveTrainSubsystem.cpp 
-arm-frc-linux-gnueabi-g++ -L/home/acohen/wpilib/cpp/current/lib -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a -o FRCUserProgram src/Subsystems/EncoderMotorSubsystem.o src/Subsystems/DriveTrainSubsystem.o src/Robot.o src/OI.o src/Commands/SetEncoderMotorPositionCommand.o src/Commands/DriveRobotCommand.o src/CommandBase.o -lwpi 
+arm-frc-linux-gnueabi-g++ -L/home/acohen/wpilib/cpp/current/lib -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a -o FRCUserProgram src/Subsystems/ToteHolderSubsystem.o src/Subsystems/EncoderMotorSubsystem.o src/Subsystems/DriveTrainSubsystem.o src/Robot.o src/OI.o src/Commands/SetEncoderMotorPositionCommand.o src/Commands/MoveToteHolderCommand.o src/Commands/DriveRobotCommand.o src/CommandBase.o -lwpi 
 
-09:36:28 Build Finished (took 5s.346ms)
+12:26:35 Build Finished (took 3s.107ms)
 

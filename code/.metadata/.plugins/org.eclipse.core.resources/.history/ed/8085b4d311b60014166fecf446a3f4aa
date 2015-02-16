@@ -1,0 +1,57 @@
+#ifndef ROBOTMAP_H
+#define ROBOTMAP_H
+
+#include "WPILib.h"
+
+/**
+ * The RobotMap is a mapping from the ports sensors and actuators are wired into
+ * to a variable name. This provides flexibility changing wiring, makes checking
+ * the wiring easier and significantly reduces the number of magic numbers
+ * floating around.
+ */
+
+const int DriveTrainRightTopVictorPort     = 0;
+const int DriveTrainRightBottomVictorPort  = 1;
+const int DriveTrainLeftTopVictorPort    = 2;
+const int DriveTrainLeftBottomVictorPort = 3;
+
+const int EncoderMotorEncoderPortA = 0;
+const int EncoderMotorEncoderPortB = 1;
+const int EncoderMotorTalonPort    = 4;
+
+const int ToteHolderSwitchPort = 3;
+const int ToteHolderSwitchPort = 2;
+
+const int ToteHolderLeftJaguarPort = 5;
+const int ToteHolderRightJaguarPort = 6;
+
+const int ToteHolder
+
+typedef enum {
+	ZERO,
+	HALF_TOTE,
+	FULL_TOTE,
+	RESET
+} EncoderMotorLiftPosition;
+const double EncoderMotorLiftZero = 0.0;
+const double EncoderMotorLiftHalfTote = 7.0;
+const double EncoderMotorLiftFullTote = 14.0;
+const double EncoderMotorLiftReset = 20.4375;
+
+//Xbox controller mapping
+const int AButton = 1;
+const int BButton = 2;
+const int XButton = 3;
+const int YButton = 4;
+const int LeftBumper = 5;
+const int RightBumper = 6;
+const int BackButton = 7;
+const int StartButton = 8;
+
+const int LeftStickX = 0;
+const int LeftStickY = 1;
+const int Triggers = 2;
+const int RightStickX = 3;
+const int RightStickY = 4;
+
+#endif

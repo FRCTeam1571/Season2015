@@ -14,9 +14,10 @@
 
 class DriveTrainSubsystem: public Subsystem {
 private:
-	Victor* LeftTop,* LeftBottom,* RightTop,* RightBottom;
 	RobotDrive* drive;
 public:
+	Victor* LeftTop,* LeftBottom,* RightTop,* RightBottom;
+
 	DriveTrainSubsystem();
 	void setSpeed(double speed, double rotation);
 };

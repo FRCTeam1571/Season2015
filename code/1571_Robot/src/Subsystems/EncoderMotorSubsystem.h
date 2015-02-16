@@ -12,6 +12,7 @@
 
 #include <Commands/Subsystem.h>
 
+#include <DigitalInput.h>
 #include <Encoder.h>
 #include <Talon.h>
 
@@ -29,6 +30,7 @@ private:
 	double distanceSinceLastUpdate = 0.0;
 public:
 	EncoderMotorLiftPosition position;
+	DigitalInput* resetSwitch;
 
 	EncoderMotorSubsystem();
 

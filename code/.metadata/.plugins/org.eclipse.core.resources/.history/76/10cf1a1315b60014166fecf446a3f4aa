@@ -1,0 +1,18 @@
+/*
+ * OpenToteHolderCommand.h
+ *
+ *  Created on: Feb 16, 2015
+ *      Author: acohen
+ */
+
+#ifndef SRC_COMMANDS_OPENTOTEHOLDERCOMMAND_H_
+#define SRC_COMMANDS_OPENTOTEHOLDERCOMMAND_H_
+
+#include <CommandBase.h>
+
+class OpenToteHolderCommand: public CommandBase {
+public:
+	OpenToteHolderCommand();
+};
+
+#endif /* SRC_COMMANDS_OPENTOTEHOLDERCOMMAND_H_ */

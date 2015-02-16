@@ -18,14 +18,23 @@ const int DriveTrainLeftBottomVictorPort = 3;
 const int EncoderMotorEncoderPortA = 0;
 const int EncoderMotorEncoderPortB = 1;
 const int EncoderMotorTalonPort    = 4;
+const int EncoderMotorResetSwitchPort = 2;
+
+const int ToteHolderExtensionSwitchPort = 3;
+const int ToteHolderRetractionSwitchPort = 4;
+
+const int ToteHolderLeftJaguarPort = 5;
+const int ToteHolderRightJaguarPort = 6;
 
 typedef enum {
 	ZERO,
+	SET_DOWN,
 	HALF_TOTE,
 	FULL_TOTE,
 	RESET
 } EncoderMotorLiftPosition;
 const double EncoderMotorLiftZero = 0.0;
+const double EncoderMotorLiftSetDown = 3.0;
 const double EncoderMotorLiftHalfTote = 7.0;
 const double EncoderMotorLiftFullTote = 14.0;
 const double EncoderMotorLiftReset = 20.4375;
