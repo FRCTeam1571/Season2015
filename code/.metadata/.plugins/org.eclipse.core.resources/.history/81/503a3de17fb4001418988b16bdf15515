@@ -1,0 +1,51 @@
+/*
+ * EncoderMotorSubsystem.cpp
+ *
+ *  Created on: Feb 2, 2015
+ *      Author: acohen
+ */
+
+#include <Subsystems/EncoderMotorSubsystem.h>
+
+#include <cmath>
+
+#include "../RobotMap.h"
+
+EncoderMotorSubsystem::EncoderMotorSubsystem():
+Subsystem("EncoderMotorSubsystem")
+{
+	builtin = new Encoder(EncoderMotorEncoderPortA, EncoderMotorEncoderPortB);
+	motor = new Talon(EncoderMotorTalonPort);
+}
+
+void EncoderMotorSubsystem::update()
+{
+	double newDistance = builtin->Get() / GearRatio / DistancePerRevolution;
+
+	if(newDistance < 0) {
+		setDistance(0);
+		zero();
+	}
+
+	distanceSinceLastUpdate = newDistance - distanceFromZero;
+	distanceFromZero = newDistance;
+}
+
+double EncoderMotorSubsystem::getDistance()
+{
+	return distanceFromZero;
+}
+
+void EncoderMotorSubsystem::setDirection(int dir)
+{
+	if(fabs(dir) != 1 && dir != 0) {
+		dir = fabs(dir) / dir;
+	}
+	motor->Set((RevolutionsPerMinute / MaxRevolutionsPerMinute) * dir);
+}
+
+void EncoderMotorSubsystem::zero()
+{
+	builtin->Reset();
+	distanceFromZero = 0;
+}

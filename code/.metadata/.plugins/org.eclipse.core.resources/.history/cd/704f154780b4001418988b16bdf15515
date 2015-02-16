@@ -1,0 +1,18 @@
+/*
+ * SetEncoderMotorSpeedCommand.h
+ *
+ *  Created on: Feb 14, 2015
+ *      Author: acohen
+ */
+
+#ifndef SRC_COMMANDS_SETENCODERMOTORSPEEDCOMMAND_H_
+#define SRC_COMMANDS_SETENCODERMOTORSPEEDCOMMAND_H_
+
+#include <CommandBase.h>
+
+class SetEncoderMotorSpeedCommand: public CommandBase {
+public:
+	SetEncoderMotorSpeedCommand();
+};
+
+#endif /* SRC_COMMANDS_SETENCODERMOTORSPEEDCOMMAND_H_ */

@@ -12,6 +12,7 @@
 struct ToggleButton
 {
 	int mapping;
+	bool lastPressed = false;
 	bool pressed = false;
 	bool toggle = false;
 
@@ -31,14 +32,20 @@ struct Stick
 	{}
 };
 
-#define Toggle(button, controller) button.toggle = \
-	(!button.pressed && controller->GetRawButton(button.mapping))?\
-			(button.toggle = (button.toggle)?false:true):\
-			(button.pressed = false);\
-	button.pressed = controller->GetRawButton(button.mapping) //Don't touch!
+//Checks whether or not a button press should be counted
+#define Toggle(button, controller)\
+	button.lastPressed = button.pressed;\
+	button.pressed = controller->GetRawButton(button.mapping);\
+	button.toggle = \
+	(button.pressed > button.lastPressed)?\
+	true:\
+	false;
 
-#define GetAxis(controller, map) fmax(xboxDeadZone * ((controller->GetRawAxis(map) > 0)?1:-1),\
-		controller->GetRawAxis(map)) //Don't touch!
+//Syntactic sugar for checking a joystick dead zone
+#define GetAxis(controller, map)\
+		(controller->GetRawAxis(map) > 0.2)?\
+				controller->GetRawAxis(map):\
+				0
 
 class OI
 {
@@ -46,11 +53,14 @@ private:
 	DriveRobotCommand* driverobot;
 	SetEncoderMotorPositionCommand* setencodermotorposition;
 
-	Joystick* xbox; //Don't access directly
+	Joystick* xbox;
 
 	double xboxDeadZone = 0.2; //Distance from zero in which input is zero
+	double speedReductionValue = 0.7;
 public:
 	OI();
+
+	ToggleButton HalveSpeed = ToggleButton(XButton);
 
 	ToggleButton RaiseLift = ToggleButton(RightBumper);
 	ToggleButton LowerLift = ToggleButton(LeftBumper);

@@ -6,17 +6,22 @@
  */
 
 #include <Subsystems/DriveTrainSubsystem.h>
-#include "../RobotMap.h"
+#include "../RobotMap.h"\
+
 
 DriveTrainSubsystem::DriveTrainSubsystem():
-Subsystem("DriveTrainSubsystem")
+Subsystem("DriveTrainSystem")
 {
-	left = new Victor(DriveTrainLeftVictorPort);
-	right = new Victor(DriveTrainRightVictorPort);
-	drive = new RobotDrive(left, right);
+	//
+	LeftTop      = new Victor(DriveTrainLeftTopVictorPort);  //Left top
+	LeftBottom   = new Victor(DriveTrainLeftBottomVictorPort);  // Left bottom
+	RightTop     = new Victor(DriveTrainRightTopVictorPort);  //Right top
+	RightBottom  = new Victor(DriveTrainRightBottomVictorPort);  //Right bottom
+	drive = new RobotDrive(LeftTop, LeftBottom, RightTop, RightBottom);
 }
 
 void DriveTrainSubsystem::setSpeed(double speed, double rotation)
 {
-	drive->ArcadeDrive(speed, rotation);
+	drive->ArcadeDrive(-1 * speed, -1 * rotation);
 }
+

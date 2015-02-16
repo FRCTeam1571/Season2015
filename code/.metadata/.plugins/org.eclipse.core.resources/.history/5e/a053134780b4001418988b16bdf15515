@@ -1,0 +1,14 @@
+/*
+ * SetEncoderMotorSpeedCommand.cpp
+ *
+ *  Created on: Feb 14, 2015
+ *      Author: acohen
+ */
+
+#include <Commands/SetEncoderMotorSpeedCommand.h>
+
+SetEncoderMotorSpeedCommand::SetEncoderMotorSpeedCommand() {
+	// TODO Auto-generated constructor stub
+
+}
+

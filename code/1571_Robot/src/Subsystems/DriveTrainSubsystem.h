@@ -9,17 +9,15 @@
 #define SRC_SUBSYSTEMS_DRIVETRAINSUBSYSTEM_H_
 
 #include <Commands/Subsystem.h>
-
-#include <RobotDrive.h>
 #include <Victor.h>
+#include <RobotDrive.h>
 
 class DriveTrainSubsystem: public Subsystem {
 private:
-	Victor* left,* right;
+	Victor* LeftTop,* LeftBottom,* RightTop,* RightBottom;
 	RobotDrive* drive;
 public:
 	DriveTrainSubsystem();
-
 	void setSpeed(double speed, double rotation);
 };
 

@@ -1,0 +1,27 @@
+#include "OI.h"
+
+OI::OI()
+{
+	driverobot = new DriveRobotCommand();
+	setencodermotorposition = new SetEncoderMotorPositionCommand();
+	xbox = new Joystick(0);
+}
+
+void OI::poll()
+{
+	Toggle(RaiseLift, xbox);
+	Toggle(LowerLift, xbox);
+
+	if(RaiseLift.toggle) {
+		setencodermotorposition->Set(CommandBase::encodermotorsubsystem->nextPosition());
+	} else if(LowerLift.toggle) {
+		setencodermotorposition->Set(CommandBase::encodermotorsubsystem->lastPosition());
+	}
+
+	DriveRobot.XVal = xbox->GetRawAxis(0);
+	DriveRobot.YVal = xbox->GetRawAxis(1);
+	SmartDashboard::PutNumber("XV", DriveRobot.XVal);
+	SmartDashboard::PutNumber("YV", DriveRobot.YVal);
+
+	driverobot->Drive(DriveRobot.YVal, DriveRobot.XVal);
+}

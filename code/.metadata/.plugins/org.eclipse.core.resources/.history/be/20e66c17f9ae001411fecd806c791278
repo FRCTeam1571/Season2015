@@ -1,7 +1,0 @@
-#include "OI.h"
-
-OI::OI()
-xbox(0)
-{
-	// Process operator interface input here.
-}

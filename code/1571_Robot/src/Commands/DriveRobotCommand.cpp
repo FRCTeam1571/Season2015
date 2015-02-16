@@ -9,6 +9,7 @@
 
 DriveRobotCommand::DriveRobotCommand()
 {
+
 	Requires(drivetrainsubsystem);
 
 }
@@ -16,14 +17,15 @@ DriveRobotCommand::DriveRobotCommand()
 void DriveRobotCommand::Initialize()
 {
 	drivetrainsubsystem->setSpeed(robotSpeed, robotRotation);
+
 }
 
 void DriveRobotCommand::Execute()
 {
-
+	Cancel();
 }
 
-bool DriveRobotCommand::IsFinished() //Only runs once
+bool DriveRobotCommand::IsFinished()
 {
 	return true;
 }
@@ -42,4 +44,6 @@ void DriveRobotCommand::Drive(double speed, double rotation)
 {
 	robotSpeed = speed;
 	robotRotation = rotation;
+	if(!IsRunning()) Start();
 }
+

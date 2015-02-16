@@ -12,8 +12,10 @@
 
 class DriveRobotCommand: public CommandBase {
 private:
+
 	double robotSpeed = 0;
 	double robotRotation = 0;
+
 public:
 	DriveRobotCommand();
 
@@ -22,7 +24,6 @@ public:
 	bool IsFinished();
 	void End();
 	void Interrupted();
-
 	void Drive(double speed, double rotation);
 };
 

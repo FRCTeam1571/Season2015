@@ -16,7 +16,7 @@ void SetEncoderMotorPositionCommand::Initialize()
 {
 	distanceToGo = goal - encodermotorsubsystem->getDistance();
 	distanceGone = 0;
-	encodermotorsubsystem->setSpeed((distanceToGo > 0)?1:-1);
+	encodermotorsubsystem->setDirection((distanceToGo > 0)?1:-1);
 }
 
 void SetEncoderMotorPositionCommand::Execute()
@@ -30,23 +30,50 @@ void SetEncoderMotorPositionCommand::Execute()
 
 bool SetEncoderMotorPositionCommand::IsFinished()
 {
-	if(abs(goal - encodermotorsubsystem->getDistance()) < 0.1) {
+	if(std::fabs(goal - encodermotorsubsystem->getDistance()) < 0.01) {
 		return true;
 	} else return false;
 }
 
 void SetEncoderMotorPositionCommand::End()
 {
-	encodermotorsubsystem->setSpeed(0.0);
+	encodermotorsubsystem->setDirection(0);
+	encodermotorsubsystem->position = goalPosition;
+
+	if(goalPosition == RESET)
+		encodermotorsubsystem->zero();
 }
 
 void SetEncoderMotorPositionCommand::Interrupted()
 {
-	Set(0.0);
+	End();
 }
 
-void SetEncoderMotorPositionCommand::Set(double position)
+void SetEncoderMotorPositionCommand::Set(EncoderMotorLiftPosition to)
 {
-	goal = position;
+
+	if(IsRunning())
+	{
+		Cancel();
+	}
+
+	goalPosition = to;
+	switch(goalPosition)
+	{
+	case ZERO:
+		goal = EncoderMotorLiftZero;
+		break;
+	case HALF_TOTE:
+		goal = EncoderMotorLiftHalfTote;
+		break;
+	case FULL_TOTE:
+		goal = EncoderMotorLiftFullTote;
+		break;
+	case RESET:
+		goal = EncoderMotorLiftReset;
+	}
+
+	SmartDashboard::PutNumber("Goal", goal);
+
 	Start();
 }

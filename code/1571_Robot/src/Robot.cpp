@@ -13,6 +13,7 @@ private:
 	{
 		CommandBase::init();
 		lw = LiveWindow::GetInstance();
+		interface = new OI();
 	}
 	
 	void DisabledPeriodic()

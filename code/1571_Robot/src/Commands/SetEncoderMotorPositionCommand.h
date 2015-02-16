@@ -9,11 +9,13 @@
 #define SRC_COMMANDS_SETENCODERMOTORPOSITIONCOMMAND_H_
 
 #include <CommandBase.h>
+#include "../Subsystems/EncoderMotorSubsystem.h"
 
 class SetEncoderMotorPositionCommand : public CommandBase {
 private:
 	double distanceToGo = 0, distanceGone = 0, lastDistanceGone = 0;
 	double goal = 0;
+	EncoderMotorLiftPosition goalPosition = ZERO;
 public:
 	SetEncoderMotorPositionCommand();
 
@@ -23,7 +25,7 @@ public:
 	void End();
 	void Interrupted();
 
-	void Set(double position);
+	void Set(EncoderMotorLiftPosition to);
 };
 
 #endif /* SRC_COMMANDS_SETENCODERMOTORPOSITIONCOMMAND_H_ */

@@ -15,20 +15,18 @@ EncoderMotorSubsystem::EncoderMotorSubsystem():
 Subsystem("EncoderMotorSubsystem")
 {
 	builtin = new Encoder(EncoderMotorEncoderPortA, EncoderMotorEncoderPortB);
-	controller = new Talon(EncoderMotorTalonPort);
+	motor = new Talon(EncoderMotorTalonPort);
+
+	zero();
 }
 
 void EncoderMotorSubsystem::update()
 {
 	double newDistance = builtin->Get() / GearRatio / DistancePerRevolution;
 
-	if(newDistance < 0) {
-		setSpeed(0.0);
-		zero();
-	}
-
 	distanceSinceLastUpdate = newDistance - distanceFromZero;
-	distanceFromZero = newDistance;
+	distanceFromZero = -1 * newDistance * 4;
+	SmartDashboard::PutNumber("Lift distance", distanceFromZero);
 }
 
 double EncoderMotorSubsystem::getDistance()
@@ -36,17 +34,63 @@ double EncoderMotorSubsystem::getDistance()
 	return distanceFromZero;
 }
 
-void EncoderMotorSubsystem::setSpeed(double newSpeed, bool isNormalized)
+EncoderMotorLiftPosition EncoderMotorSubsystem::nextPosition()
 {
-	if(!isNormalized) {
-		newSpeed = fmin((newSpeed * 60) / DistancePerRevolution / RevolutionsPerMinute, 1.0);
+	EncoderMotorLiftPosition next;
+	switch(position)
+	{
+	case ZERO:
+		next = HALF_TOTE;
+		break;
+	case HALF_TOTE:
+		next = FULL_TOTE;
+		break;
+	case FULL_TOTE:
+		next = RESET;
+		break;
+	case RESET:
+		next = RESET;
+		break;
+	//No RESET because it's supposed to automatically go to zero
 	}
 
-	controller->Set(newSpeed * (RevolutionsPerMinute / MaxRevolutionsPerMinute));
+	return next;
+}
+
+EncoderMotorLiftPosition EncoderMotorSubsystem::lastPosition()
+{
+	EncoderMotorLiftPosition last;
+	switch(position)
+	{
+	case ZERO:
+		last = ZERO;
+		break;
+	case HALF_TOTE:
+		last = ZERO;
+		break;
+	case FULL_TOTE:
+		last = HALF_TOTE;
+		break;
+	case RESET:
+		last = RESET;
+		break;
+	//No ZERO or RESET because RESET goes to zero and ZERO is zero
+	}
+
+	return last;
+}
+
+void EncoderMotorSubsystem::setDirection(int dir)
+{
+	if(fabs(dir) != 1 && dir != 0) {
+		dir = fabs(dir) / dir;
+	}
+	motor->Set((RevolutionsPerMinute / MaxRevolutionsPerMinute) * dir);
 }
 
 void EncoderMotorSubsystem::zero()
 {
 	builtin->Reset();
 	distanceFromZero = 0;
+	position = ZERO;
 }

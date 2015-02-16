@@ -1,0 +1,25 @@
+#include "OI.h"
+
+OI::OI()
+{
+	driverobot = new DriveRobotCommand();
+	setencodermotorposition = new SetEncoderMotorPositionCommand();
+	xbox = new Joystick(0);
+}
+
+void OI::poll()
+{
+	Toggle(RaiseLift, xbox);
+	Toggle(LowerLift, xbox);
+
+	if(RaiseLift.toggle) {
+		setencodermotorposition->Set(CommandBase::encodermotorsubsystem->nextPosition());
+	} else if(LowerLift.toggle) {
+		setencodermotorposition->Set(CommandBase::encodermotorsubsystem->lastPosition());
+	}
+
+	DriveRobot.XVal = GetAxis(xbox, DriveRobot.XMap);
+	DriveRobot.YVal = GetAxis(xbox, DriveRobot.YMap);
+
+	//driverobot->Drive(DriveRobot.YVal, -1 * DriveRobot.XVal);
+}

@@ -8,6 +8,8 @@
 #ifndef SRC_SUBSYSTEMS_ENCODERMOTORSUBSYSTEM_H_
 #define SRC_SUBSYSTEMS_ENCODERMOTORSUBSYSTEM_H_
 
+#include "../RobotMap.h"
+
 #include <Commands/Subsystem.h>
 
 #include <Encoder.h>
@@ -16,24 +18,27 @@
 class EncoderMotorSubsystem: public Subsystem {
 private:
 	Encoder* builtin;
-	Talon* controller;
+	Talon* motor;
 
 	const double GearRatio = 71.164; //Only the built in gearbox. Other gearing will need to eventually be factored in
-	const double RevolutionsPerMinute = 45; //Varies under load, but should be fine as-is
+	const double RevolutionsPerMinute = 55; //Varies under load, but should be fine as-is
 	const double MaxRevolutionsPerMinute = 75;
-	const double DistancePerRevolution = 4; //Temp number; will be fixed later
-	const double MaxDistance = 20; //Again, temporary until final planning
+	const double DistancePerRevolution = 4.75; //Temp number; will be fixed later
 
 	double distanceFromZero = 0.0; //Measured in inches
 	double distanceSinceLastUpdate = 0.0;
 public:
+	EncoderMotorLiftPosition position;
+
 	EncoderMotorSubsystem();
 
 	void update(); //Should be called every update period via command
 
 	double getDistance();
+	EncoderMotorLiftPosition nextPosition();
+	EncoderMotorLiftPosition lastPosition();
 
-	void setSpeed(double newSpeed, bool isNormalized = true);
+	void setDirection(int dir); //dir == 1: Up | dir == -1: Down
 	void zero();
 };
 

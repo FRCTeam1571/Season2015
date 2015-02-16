@@ -1,0 +1,29 @@
+/*
+ * SetEncoderMotorPositionCommand.h
+ *
+ *  Created on: Feb 2, 2015
+ *      Author: acohen
+ */
+
+#ifndef SRC_COMMANDS_SETENCODERMOTORPOSITIONCOMMAND_H_
+#define SRC_COMMANDS_SETENCODERMOTORPOSITIONCOMMAND_H_
+
+#include <CommandBase.h>
+
+class SetEncoderMotorPositionCommand : public CommandBase { //Should only be used for autonomous (For now)
+private:
+	double distanceToGo = 0, distanceGone = 0, lastDistanceGone = 0;
+	double goal = 0;
+public:
+	SetEncoderMotorPositionCommand();
+
+	void Initialize();
+	void Execute();
+	bool IsFinished();
+	void End();
+	void Interrupted();
+
+	void Set(double position);
+};
+
+#endif /* SRC_COMMANDS_SETENCODERMOTORPOSITIONCOMMAND_H_ */

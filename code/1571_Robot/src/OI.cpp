@@ -1,28 +1,35 @@
 #include "OI.h"
 
-OI::OI():
-driverobot(),
-setencodermotorposition(),
-xbox(0)
+OI::OI()
 {
-
+	driverobot = new DriveRobotCommand();
+	setencodermotorposition = new SetEncoderMotorPositionCommand();
+	xbox = new Joystick(0);
 }
 
 void OI::poll()
 {
+	HalveSpeed.pressed = xbox->GetRawButton(HalveSpeed.mapping);
+
 	Toggle(RaiseLift, xbox);
 	Toggle(LowerLift, xbox);
 
 	if(RaiseLift.toggle) {
-		setencodermotorposition->Set(10);
-		RaiseLift.toggle = false;
+		setencodermotorposition->Set(CommandBase::encodermotorsubsystem->nextPosition());
 	} else if(LowerLift.toggle) {
-		setencodermotorposition->Set(0);
-		LowerLift.toggle = false;
+		setencodermotorposition->Set(CommandBase::encodermotorsubsystem->lastPosition());
 	}
 
-	DriveRobot.XVal = GetAxis(xbox, DriveRobot.XMap);
-	DriveRobot.YVal = GetAxis(xbox, DriveRobot.YMap);
+	DriveRobot.XVal = xbox->GetRawAxis(DriveRobot.XMap) * 0.8;
+	DriveRobot.YVal = xbox->GetRawAxis(DriveRobot.YMap) * 0.8; //Otherwise it bounces around too much
 
-	driverobot->Drive(DriveRobot.YVal, -1 * DriveRobot.XVal);
+	if(HalveSpeed.pressed) {
+		DriveRobot.XVal *= speedReductionValue;
+		DriveRobot.YVal *= speedReductionValue;
+	}
+
+	SmartDashboard::PutNumber("X Axis", DriveRobot.XVal);
+	SmartDashboard::PutNumber("Y Axis", DriveRobot.YVal);
+
+	driverobot->Drive(DriveRobot.YVal, DriveRobot.XVal);
 }

@@ -10,12 +10,25 @@
  * floating around.
  */
 
-const int DriveTrainLeftVictorPort = 0;
-const int DriveTrainRightVictorPort = 1;
+const int DriveTrainRightTopVictorPort     = 0;
+const int DriveTrainRightBottomVictorPort  = 1;
+const int DriveTrainLeftTopVictorPort    = 2;
+const int DriveTrainLeftBottomVictorPort = 3;
 
 const int EncoderMotorEncoderPortA = 0;
 const int EncoderMotorEncoderPortB = 1;
-const int EncoderMotorTalonPort = 2;
+const int EncoderMotorTalonPort    = 4;
+
+typedef enum {
+	ZERO,
+	HALF_TOTE,
+	FULL_TOTE,
+	RESET
+} EncoderMotorLiftPosition;
+const double EncoderMotorLiftZero = 0.0;
+const double EncoderMotorLiftHalfTote = 7.0;
+const double EncoderMotorLiftFullTote = 14.0;
+const double EncoderMotorLiftReset = 20.4375;
 
 //Xbox controller mapping
 const int AButton = 1;
@@ -27,10 +40,10 @@ const int RightBumper = 6;
 const int BackButton = 7;
 const int StartButton = 8;
 
-const int LeftStickX = 1;
-const int LeftStickY = 2;
-const int Triggers = 3;
-const int RightStickX = 4;
-const int RightStickY = 5;
+const int LeftStickX = 0;
+const int LeftStickY = 1;
+const int Triggers = 2;
+const int RightStickX = 3;
+const int RightStickY = 4;
 
 #endif
