@@ -29,13 +29,12 @@ bool MoveToteHolderCommand::IsFinished()
 
 void MoveToteHolderCommand::Interrupted()
 {
-	End();
+
 }
 
 void MoveToteHolderCommand::End()
 {
-	speed = 0;
-	toteholdersubsystem->setSpeed(0);
+
 }
 
 void MoveToteHolderCommand::Set(double newSpeed)

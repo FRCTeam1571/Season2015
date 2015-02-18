@@ -20,9 +20,6 @@ const int EncoderMotorEncoderPortB = 1;
 const int EncoderMotorTalonPort    = 4;
 const int EncoderMotorResetSwitchPort = 2;
 
-const int ToteHolderExtensionSwitchPort = 3;
-const int ToteHolderRetractionSwitchPort = 4;
-
 const int ToteHolderLeftJaguarPort = 5;
 const int ToteHolderRightJaguarPort = 6;
 

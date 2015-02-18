@@ -22,10 +22,13 @@ void OI::poll()
 		setencodermotorposition->Set(CommandBase::encodermotorsubsystem->lastPosition());
 	}
 
+	ResetLift.pressed = xbox->GetRawButton(ResetLift.mapping);
+	if(ResetLift.pressed) zeroencodermotor->Start();
+
 	DriveRobot.XVal = xbox->GetRawAxis(DriveRobot.XMap) * 0.8;
-	if(DriveRobot.XVal <= xboxDeadZone) DriveRobot.XVal = 0;
+	if(std::fabs(DriveRobot.XVal) <= xboxDeadZone) DriveRobot.XVal = 0;
 	DriveRobot.YVal = xbox->GetRawAxis(DriveRobot.YMap) * 0.8; //Otherwise it bounces around too much
-	if(DriveRobot.YVal <= xboxDeadZone) DriveRobot.YVal = 0;
+	if(std::fabs(DriveRobot.YVal) <= xboxDeadZone) DriveRobot.YVal = 0;
 
 	if(HalveSpeed.pressed) {
 		DriveRobot.XVal *= speedReductionValue;
@@ -34,8 +37,12 @@ void OI::poll()
 
 	driverobot->Drive(DriveRobot.YVal, DriveRobot.XVal);
 
-	MoveToteHolder.XVal = xbox->GetRawAxis(MoveToteHolder.XMap);
-	if(MoveToteHolder.XVal <= xboxDeadZone) MoveToteHolder.XVal = 0;
+	OpenHolder.pressed = xbox->GetRawButton(OpenHolder.mapping);
+	CloseHolder.pressed = xbox->GetRawButton(CloseHolder.mapping);
 
-	movetoteholder->Set(MoveToteHolder.XVal);
+	if(OpenHolder.pressed) {
+		movetoteholder->Set(-0.6);
+	} else if(CloseHolder.pressed) {
+		movetoteholder->Set(0.6);
+	} else movetoteholder->Set(0);
 }

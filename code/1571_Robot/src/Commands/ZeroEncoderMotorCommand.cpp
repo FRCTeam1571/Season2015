@@ -24,7 +24,7 @@ void ZeroEncoderMotorCommand::Execute()
 
 bool ZeroEncoderMotorCommand::IsFinished()
 {
-	return encodermotorsubsystem->resetSwitch->Get();
+	return !encodermotorsubsystem->resetSwitch->Get();
 }
 
 void ZeroEncoderMotorCommand::Interrupted()

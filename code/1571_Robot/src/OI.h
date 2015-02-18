@@ -62,9 +62,12 @@ public:
 
 	ToggleButton RaiseLift = ToggleButton(RightBumper);
 	ToggleButton LowerLift = ToggleButton(LeftBumper);
+	ToggleButton ResetLift = ToggleButton(YButton);
+
+	ToggleButton OpenHolder = ToggleButton(AButton);
+	ToggleButton CloseHolder = ToggleButton(BButton);
 
 	Stick DriveRobot = Stick(LeftStickX, LeftStickY);
-	Stick MoveToteHolder = Stick(Triggers, -1);
 
 	void poll();
 };

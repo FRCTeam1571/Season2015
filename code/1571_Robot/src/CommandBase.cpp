@@ -25,5 +25,5 @@ void CommandBase::init()
 	// line should be repeated for each subsystem in the project.
 	drivetrainsubsystem = new DriveTrainSubsystem();
 	encodermotorsubsystem = new EncoderMotorSubsystem();
-	//toteholdersubsystem = new ToteHolderSubsystem();
+	toteholdersubsystem = new ToteHolderSubsystem();
 }
