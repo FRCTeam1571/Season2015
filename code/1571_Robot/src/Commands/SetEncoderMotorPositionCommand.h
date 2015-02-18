@@ -16,8 +16,9 @@ private:
 	double distanceToGo = 0, distanceGone = 0, lastDistanceGone = 0;
 	double direction = 0;
 	double goal = 0;
-	EncoderMotorLiftPosition goalPosition = ZERO;
 public:
+	EncoderMotorLiftPosition goalPosition = ZERO;
+
 	SetEncoderMotorPositionCommand();
 
 	void Initialize();

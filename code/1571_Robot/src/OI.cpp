@@ -17,13 +17,21 @@ void OI::poll()
 	Toggle(LowerLift, xbox);
 
 	if(RaiseLift.toggle) {
-		setencodermotorposition->Set(CommandBase::encodermotorsubsystem->nextPosition());
+		if(setencodermotorposition->goalPosition == FULL_TOTE) {
+			zeroencodermotor->Start();
+			setencodermotorposition->goalPosition = ZERO;
+			CommandBase::encodermotorsubsystem->zero();
+		}else setencodermotorposition->Set(CommandBase::encodermotorsubsystem->nextPosition());
 	} else if(LowerLift.toggle) {
 		setencodermotorposition->Set(CommandBase::encodermotorsubsystem->lastPosition());
 	}
 
 	ResetLift.pressed = xbox->GetRawButton(ResetLift.mapping);
-	if(ResetLift.pressed) zeroencodermotor->Start();
+	if(ResetLift.pressed) {
+		zeroencodermotor->Start();
+		setencodermotorposition->goalPosition = ZERO;
+		CommandBase::encodermotorsubsystem->zero();
+	}
 
 	DriveRobot.XVal = xbox->GetRawAxis(DriveRobot.XMap) * 0.8;
 	if(std::fabs(DriveRobot.XVal) <= xboxDeadZone) DriveRobot.XVal = 0;

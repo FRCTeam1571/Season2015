@@ -31,9 +31,9 @@ typedef enum {
 	RESET
 } EncoderMotorLiftPosition;
 const double EncoderMotorLiftZero = 0.0;
-const double EncoderMotorLiftSetDown = 3.0;
+const double EncoderMotorLiftSetDown = 0.0;
 const double EncoderMotorLiftHalfTote = 7.0;
-const double EncoderMotorLiftFullTote = 14.0;
+const double EncoderMotorLiftFullTote = 20.0;
 const double EncoderMotorLiftReset = 20.4375;
 
 //Xbox controller mapping
