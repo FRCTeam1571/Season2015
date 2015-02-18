@@ -12,7 +12,7 @@
 
 class MoveToteHolderCommand: public CommandBase {
 private:
-	int direction = 0;
+	double speed = 0;
 public:
 	MoveToteHolderCommand();
 
@@ -22,8 +22,7 @@ public:
 	void Interrupted();
 	void End();
 
-	void Open();
-	void Close();
+	void Set(double newSpeed);
 };
 
 #endif /* SRC_COMMANDS_MOVETOTEHOLDERCOMMAND_H_ */

@@ -1,0 +1,81 @@
+/*
+ * SetEncoderMotorPositionCommand.cpp
+ *
+ *  Created on: Feb 2, 2015
+ *      Author: acohen
+ */
+
+#include <Commands/SetEncoderMotorPositionCommand.h>
+
+#include "../RobotMap.h"
+
+SetEncoderMotorPositionCommand::SetEncoderMotorPositionCommand()
+{
+	Requires(encodermotorsubsystem);
+}
+
+void SetEncoderMotorPositionCommand::Initialize()
+{
+	distanceToGo = goal - encodermotorsubsystem->getDistance();
+	distanceGone = 0;
+	encodermotorsubsystem->setDirection((distanceToGo > 0)?1:-1);
+}
+
+void SetEncoderMotorPositionCommand::Execute()
+{
+	distanceGone = encodermotorsubsystem->getDistance();
+	distanceToGo -= distanceGone - lastDistanceGone;
+	lastDistanceGone = distanceGone;
+
+	encodermotorsubsystem->update();
+}
+
+bool SetEncoderMotorPositionCommand::IsFinished()
+{
+	if(std::fabs(goal - encodermotorsubsystem->getDistance()) < 0.1) {
+		return true;
+	} else return false;
+}
+
+void SetEncoderMotorPositionCommand::End()
+{
+	encodermotorsubsystem->setDirection(0);
+	encodermotorsubsystem->position = goalPosition;
+
+	if(goalPosition == RESET)
+		encodermotorsubsystem->zero();
+}
+
+void SetEncoderMotorPositionCommand::Interrupted()
+{
+	End();
+}
+
+void SetEncoderMotorPositionCommand::Set(EncoderMotorLiftPosition to)
+{
+
+	if(IsRunning())
+	{
+		Cancel();
+	}
+
+	goalPosition = to;
+	switch(goalPosition)
+	{
+	case ZERO:
+		goal = EncoderMotorLiftZero;
+		break;
+	case HALF_TOTE:
+		goal = EncoderMotorLiftHalfTote;
+		break;
+	case FULL_TOTE:
+		goal = EncoderMotorLiftFullTote;
+		break;
+	case RESET:
+		goal = EncoderMotorLiftReset;
+	}
+
+	SmartDashboard::PutNumber("Goal", goal);
+
+	Start();
+}

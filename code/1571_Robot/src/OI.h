@@ -7,7 +7,9 @@
 
 #include "RobotMap.h"
 #include "Commands/DriveRobotCommand.h"
+#include "Commands/MoveToteHolderCommand.h"
 #include "Commands/SetEncoderMotorPositionCommand.h"
+#include "Commands/ZeroEncoderMotorCommand.h"
 
 struct ToggleButton
 {
@@ -41,17 +43,13 @@ struct Stick
 	true:\
 	false;
 
-//Syntactic sugar for checking a joystick dead zone
-#define GetAxis(controller, map)\
-		(controller->GetRawAxis(map) > 0.2)?\
-				controller->GetRawAxis(map):\
-				0
-
 class OI
 {
 private:
 	DriveRobotCommand* driverobot;
+	MoveToteHolderCommand* movetoteholder;
 	SetEncoderMotorPositionCommand* setencodermotorposition;
+	ZeroEncoderMotorCommand* zeroencodermotor;
 
 	Joystick* xbox;
 
@@ -66,6 +64,7 @@ public:
 	ToggleButton LowerLift = ToggleButton(LeftBumper);
 
 	Stick DriveRobot = Stick(LeftStickX, LeftStickY);
+	Stick MoveToteHolder = Stick(Triggers, -1);
 
 	void poll();
 };

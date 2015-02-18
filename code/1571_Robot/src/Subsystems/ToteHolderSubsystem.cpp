@@ -11,14 +11,12 @@
 ToteHolderSubsystem::ToteHolderSubsystem():
 Subsystem("ToteHolderSubsystem")
 {
-	extensionSwitch = new DigitalInput(ToteHolderExtensionSwitchPort);
-	retractionSwitch = new DigitalInput(ToteHolderRetractionSwitchPort);
 	leftMotor = new Jaguar(ToteHolderLeftJaguarPort);
 	rightMotor = new Jaguar(ToteHolderRightJaguarPort);
 }
 
-void ToteHolderSubsystem::setDirection(int dir)
+void ToteHolderSubsystem::setSpeed(double speed)
 {
-	leftMotor->Set(dir);
-	rightMotor->Set(dir * -1);
+	leftMotor->Set(speed);
+	rightMotor->Set(-1 * speed);
 }

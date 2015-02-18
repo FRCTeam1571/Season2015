@@ -16,11 +16,9 @@ class ToteHolderSubsystem: public Subsystem {
 private:
 	Jaguar* leftMotor,* rightMotor;
 public:
-	DigitalInput* extensionSwitch,* retractionSwitch;
-
 	ToteHolderSubsystem();
 
-	void setDirection(int dir);
+	void setSpeed(double speed);
 };
 
 #endif /* SRC_SUBSYSTEMS_TOTEHOLDERSUBSYSTEM_H_ */

@@ -1,0 +1,14 @@
+/*
+ * ZeroEncoderMotorCommand.cpp
+ *
+ *  Created on: Feb 16, 2015
+ *      Author: acohen
+ */
+
+#include <Commands/ZeroEncoderMotorCommand.h>
+
+ZeroEncoderMotorCommand::ZeroEncoderMotorCommand() {
+	// TODO Auto-generated constructor stub
+
+}
+

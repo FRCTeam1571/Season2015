@@ -14,7 +14,7 @@ MoveToteHolderCommand::MoveToteHolderCommand()
 
 void MoveToteHolderCommand::Initialize()
 {
-	toteholdersubsystem->setDirection(direction);
+	toteholdersubsystem->setSpeed(speed);
 }
 
 void MoveToteHolderCommand::Execute()
@@ -24,32 +24,22 @@ void MoveToteHolderCommand::Execute()
 
 bool MoveToteHolderCommand::IsFinished()
 {
-	if(direction == 1) {
-		return toteholdersubsystem->extensionSwitch->Get();
-	} else if(direction == -1) {
-		return toteholdersubsystem->retractionSwitch->Get();
-	} else return false;
+	return true;
 }
 
 void MoveToteHolderCommand::Interrupted()
 {
-	Start(); //Can't leave it half open!
+	End();
 }
 
 void MoveToteHolderCommand::End()
 {
-	direction = 0;
-	toteholdersubsystem->setDirection(0);
+	speed = 0;
+	toteholdersubsystem->setSpeed(0);
 }
 
-void MoveToteHolderCommand::Open()
+void MoveToteHolderCommand::Set(double newSpeed)
 {
-	direction = 1;
-	Start();
-}
-
-void MoveToteHolderCommand::Close()
-{
-	direction = -1;
+	speed = newSpeed;
 	Start();
 }
