@@ -3,12 +3,15 @@
 #include "Commands/ZeroEncoderMotorCommand.h"
 #include "OI.h"
 
+#include <CameraServer.h>
+
 class Robot: public IterativeRobot
 {
 private:
 	LiveWindow* lw;
 	ZeroEncoderMotorCommand* zero;
 	OI* interface;
+	CameraServer* server;
 
 	void RobotInit()
 	{
@@ -16,6 +19,8 @@ private:
 		lw = LiveWindow::GetInstance();
 		zero = new ZeroEncoderMotorCommand();
 		interface = new OI();
+		server = new CameraServer();
+		server->StartAutomaticCapture("cam0");
 	}
 	
 	void DisabledPeriodic()
