@@ -19,7 +19,7 @@ private:
 		lw = LiveWindow::GetInstance();
 		zero = new ZeroEncoderMotorCommand();
 		interface = new OI();
-		server = new CameraServer();
+		server = CameraServer::GetInstance();
 		server->StartAutomaticCapture("cam0");
 	}
 	
