@@ -25,16 +25,12 @@ const int ToteHolderRightJaguarPort = 6;
 
 typedef enum {
 	ZERO,
-	SET_DOWN,
 	HALF_TOTE,
 	FULL_TOTE,
-	RESET
 } EncoderMotorLiftPosition;
 const double EncoderMotorLiftZero = 0.0;
-const double EncoderMotorLiftSetDown = 0.0;
 const double EncoderMotorLiftHalfTote = 7.0;
-const double EncoderMotorLiftFullTote = 20.0;
-const double EncoderMotorLiftReset = 20.4375;
+const double EncoderMotorLiftFullTote = 22.0;
 
 //Xbox controller mapping
 const int AButton = 1;

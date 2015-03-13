@@ -44,9 +44,6 @@ void SetEncoderMotorPositionCommand::End()
 {
 	encodermotorsubsystem->setDirection(0);
 	encodermotorsubsystem->position = goalPosition;
-
-	if(goalPosition == RESET)
-		encodermotorsubsystem->zero();
 }
 
 void SetEncoderMotorPositionCommand::Interrupted()
@@ -68,17 +65,12 @@ void SetEncoderMotorPositionCommand::Set(EncoderMotorLiftPosition to)
 	case ZERO:
 		goal = EncoderMotorLiftZero;
 		break;
-	case SET_DOWN:
-		goal = EncoderMotorLiftSetDown;
-		break;
 	case HALF_TOTE:
 		goal = EncoderMotorLiftHalfTote;
 		break;
 	case FULL_TOTE:
 		goal = EncoderMotorLiftFullTote;
 		break;
-	case RESET:
-		goal = EncoderMotorLiftReset;
 	}
 
 	SmartDashboard::PutNumber("Goal", goal);

@@ -43,19 +43,9 @@ EncoderMotorLiftPosition EncoderMotorSubsystem::nextPosition()
 	case ZERO:
 		next = HALF_TOTE;
 		break;
-	case SET_DOWN:
-		next = HALF_TOTE;
-		break;
 	case HALF_TOTE:
 		next = FULL_TOTE;
 		break;
-	case FULL_TOTE:
-		next = RESET;
-		break;
-	case RESET:
-		next = RESET;
-		break;
-	//No RESET because it's supposed to automatically go to zero
 	}
 
 	return next;
@@ -69,19 +59,12 @@ EncoderMotorLiftPosition EncoderMotorSubsystem::lastPosition()
 	case ZERO:
 		last = ZERO;
 		break;
-	case SET_DOWN:
-		last = SET_DOWN;
-		break;
 	case HALF_TOTE:
-		last = SET_DOWN;
+		last = ZERO;
 		break;
 	case FULL_TOTE:
 		last = HALF_TOTE;
 		break;
-	case RESET:
-		last = RESET;
-		break;
-	//No ZERO or RESET because RESET goes to zero and ZERO is zero (And SET_DOWN is lowest)
 	}
 
 	return last;

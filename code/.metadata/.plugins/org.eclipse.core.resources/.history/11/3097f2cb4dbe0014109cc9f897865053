@@ -1,0 +1,65 @@
+#include "WPILib.h"
+#include "CommandBase.h"
+#include "Commands/ZeroEncoderMotorCommand.h"
+#include "OI.h"
+
+#include <CameraServer.h>
+#include <USBCamera.h>
+
+class Robot: public IterativeRobot
+{
+private:
+	LiveWindow* lw;
+	ZeroEncoderMotorCommand* zero;
+	OI* interface;
+	USBCamera* camera;
+
+	void RobotInit()
+	{
+		CommandBase::init();
+		lw = LiveWindow::GetInstance();
+		zero = new ZeroEncoderMotorCommand();
+		interface = new OI();
+
+		camera = new USBCamera();
+		camera->SetFPS(12);
+		camera->SetSize(240, 320);
+		camera->UpdateSettings();
+		CameraServer::StartAutomaticCapture(camera);
+	}
+	
+	void DisabledPeriodic()
+	{
+		Scheduler::GetInstance()->Run();
+	}
+
+	void AutonomousInit()
+	{
+		zero->Start();
+	}
+
+	void AutonomousPeriodic()
+	{
+		Scheduler::GetInstance()->Run();
+	}
+
+	void TeleopInit()
+	{
+		zero->Start();
+	}
+
+	void TeleopPeriodic()
+	{
+		Scheduler::GetInstance()->Run();
+
+		interface->poll();
+	}
+
+	void TestPeriodic()
+	{
+		lw->Run();
+	}
+};
+
+START_ROBOT_CLASS(Robot);
+

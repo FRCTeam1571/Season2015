@@ -1,53 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="completion_proposal_size">
-		<item value="406" key="size.x"/>
-		<item value="275" key="size.y"/>
-	</section>
-	<section name="org.eclipse.cdt.internal.ui.wizards.classwizard.NewBaseClassSelectionDialogSettings">
-		<item value="true" key="show_structs"/>
-		<item value="true" key="show_lowlevel"/>
-		<item value="false" key="show_macros"/>
-		<item value="false" key="show_variables"/>
-		<item value="370" key="width"/>
-		<item value="false" key="show_functions"/>
-		<item value="false" key="show_enums"/>
-		<item value="743" key="height"/>
-		<item value="true" key="show_classes"/>
-		<item value="false" key="show_typedefs"/>
-		<item value="false" key="show_namespaces"/>
-		<item value="false" key="show_unions"/>
-		<item value="false" key="show_enumerators"/>
-		<item value="0" key="y"/>
-		<item value="499" key="x"/>
+	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
+		<item value="384" key="DIALOG_WIDTH"/>
+		<item value="1|Liberation Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="401" key="DIALOG_HEIGHT"/>
+		<item value="491" key="DIALOG_X_ORIGIN"/>
+		<item value="170" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="NewClassWizardPage">
 		<item value="false" key="stubSelected1"/>
-		<item value="false" key="testFileSelected"/>
-		<item value="false" key="namespaceSelected"/>
-		<item value="false" key="stubInline1"/>
 		<item value="true" key="stubVirtual1"/>
+		<item value="false" key="namespaceSelected"/>
 		<item value="false" key="stubInline0"/>
-		<item value="true" key="stubSelected0"/>
+		<item value="false" key="stubInline1"/>
 		<item value="" key="namespace"/>
-	</section>
-	<section name="org.eclipse.cdt.internal.ui.wizards.classwizard.NamespaceSelectionDialogSettings">
-		<item value="false" key="show_structs"/>
-		<item value="false" key="show_lowlevel"/>
-		<item value="false" key="show_macros"/>
-		<item value="false" key="show_variables"/>
-		<item value="412" key="width"/>
-		<item value="false" key="show_functions"/>
-		<item value="false" key="show_enums"/>
-		<item value="690" key="height"/>
-		<item value="false" key="show_classes"/>
-		<item value="false" key="show_typedefs"/>
-		<item value="true" key="show_namespaces"/>
-		<item value="false" key="show_unions"/>
-		<item value="false" key="show_enumerators"/>
-		<item value="0" key="y"/>
-		<item value="478" key="x"/>
+		<item value="false" key="testFileSelected"/>
+		<item value="true" key="stubSelected0"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+	</section>
+	<section name="org.eclipse.cdt.internal.ui.wizards.classwizard.NamespaceSelectionDialogSettings">
+		<item value="false" key="show_enums"/>
+		<item value="false" key="show_unions"/>
+		<item value="false" key="show_macros"/>
+		<item value="false" key="show_classes"/>
+		<item value="false" key="show_functions"/>
+		<item value="false" key="show_lowlevel"/>
+		<item value="true" key="show_namespaces"/>
+		<item value="false" key="show_enumerators"/>
+		<item value="false" key="show_structs"/>
+		<item value="412" key="width"/>
+		<item value="478" key="x"/>
+		<item value="0" key="y"/>
+		<item value="false" key="show_typedefs"/>
+		<item value="false" key="show_variables"/>
+		<item value="690" key="height"/>
+	</section>
+	<section name="completion_proposal_size">
+		<item value="275" key="size.y"/>
+		<item value="406" key="size.x"/>
+	</section>
+	<section name="org.eclipse.cdt.internal.ui.wizards.classwizard.NewBaseClassSelectionDialogSettings">
+		<item value="false" key="show_enums"/>
+		<item value="false" key="show_unions"/>
+		<item value="false" key="show_macros"/>
+		<item value="true" key="show_classes"/>
+		<item value="false" key="show_functions"/>
+		<item value="true" key="show_lowlevel"/>
+		<item value="false" key="show_namespaces"/>
+		<item value="false" key="show_enumerators"/>
+		<item value="true" key="show_structs"/>
+		<item value="370" key="width"/>
+		<item value="499" key="x"/>
+		<item value="0" key="y"/>
+		<item value="false" key="show_typedefs"/>
+		<item value="false" key="show_variables"/>
+		<item value="743" key="height"/>
 	</section>
 </section>
